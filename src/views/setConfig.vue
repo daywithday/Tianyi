@@ -76,7 +76,7 @@ export default {
     };
   },
   mounted() {
-      let that =this
+    let that = this;
     if (location.href.indexOf("localhost:") != -1) {
       this.show = false;
     } else {
@@ -92,10 +92,10 @@ export default {
       that.$globalData.baseUrl = baseUrl;
       setBaseUrl(baseUrl + ":" + prot);
       setToken(token);
-      apiAddress({a:1}).then((res) => {
+      apiAddress({ a: 1 }).then((res) => {
         console.log(res);
         if (res.code == 200) {
-            that.$router.push({name: 'home'})
+          that.$router.push({ name: "home" });
         }
       });
     }
@@ -111,20 +111,24 @@ export default {
       }
       evt.preventDefault();
       apiAddress({
-          a:1
+        a: 1,
       }).then((res) => {
         console.log(res);
         if (res.code == 200) {
-            that.$globalData.assestToken = that.form.assestToken;
+          that.$globalData.assestToken = that.form.assestToken;
+          if (that.form.baseUrl) {
             that.$globalData.baseUrl = "http://" + that.form.baseUrl;
+          }
+          if (that.form.prot) {
             that.$globalData.prot = that.form.prot;
+          }
           if (that.form.selected == "A") {
             localStorage.setItem("selected", "A");
             localStorage.setItem("token", that.form.assestToken);
             localStorage.setItem("baseUrl", that.$globalData.baseUrl);
             localStorage.setItem("prot", that.$globalData.prot);
           }
-          that.$router.push({name: 'home'})
+          that.$router.push({ name: "home" });
         } else {
           localStorage.setItem("selected", "");
           localStorage.setItem("token", "");
