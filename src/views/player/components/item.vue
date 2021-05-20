@@ -1,77 +1,77 @@
 <template>
-    <el-col
-        v-if="item"
-        :xs="{span: 12}"
-        :sm="{span: 6}"
-        :md="{span: 4}"
-        :lg="{span: 3}"
-        :xl="{span: 2}"
-        class="cardBox"
-    >
-        <div style="width: 100px; height: 100px;position: relative;">
-            <el-image
-                style="width: 100px; height: 100px"
-                :src="getImage(item)"
-                fit="cover"
-            ></el-image>
+  <el-col
+    v-if="item"
+    :xs="{span: 12}"
+    :sm="{span: 6}"
+    :md="{span: 4}"
+    :lg="{span: 3}"
+    :xl="{span: 2}"
+    class="cardBox"
+  >
+    <div style="width: 100px; height: 100px;position: relative;">
+      <el-image
+        style="width: 100px; height: 100px"
+        :src="getImage(item)"
+        fit="cover"
+      />
 
-            <el-progress
-                class="postion"
-                v-if="item.useTimes && item.maxUseTimes"
-                :percentage="parseInt(((item.maxUseTimes - item.useTimes) / item.maxUseTimes)*100)"
-                :format="format"
-            />
-            <p
-                class="postion texts"
-                v-else
-            >{{item.count}}</p>
-        </div>
+      <el-progress
+        v-if="item.useTimes && item.maxUseTimes"
+        class="postion"
+        :percentage="parseInt(((item.maxUseTimes - item.useTimes) / item.maxUseTimes)*100)"
+        :format="format"
+      />
+      <p
+        v-else
+        class="postion texts"
+      >{{ item.count }}</p>
+    </div>
 
-        {{item.itemName}}
+    {{ item.itemName }}
 
-    </el-col>
+  </el-col>
 </template>
 <script>
-import { getServer, getPort } from "@/utils/auth";
+import { getServer, getPort } from '@/utils/auth'
 export default {
-  props: ["item"],
+  props: ['item'],
   methods: {
-      format(percentage) {
-        return ''
-      },
+    format(percentage) {
+      return ''
+    },
     getImage(item) {
-      if (item.iconcolor !== "FFFFFF") {
+      if (item.iconcolor !== 'FFFFFF') {
         return (
-          "http://" +
+          'http://' +
           getServer() +
-          ":" +
+          ':' +
           getPort() +
-          "/itemicons/" +
+          '/itemicons/' +
           item.icon +
-          "__" +
+          '__' +
           item.iconcolor +
-          ".png"
-        );
+          '.png'
+        )
       } else {
         if (global_itemicons.has(item.icon)) {
           return `https://cdn.jsdelivr.net/gh/1249993110/7dtd@main/itemicons/${
             item.icon
-          }.png`;
+          }.png`
         } else {
           return (
-            "http://" +
+            'http://' +
             getServer() +
-            ":" +
+            ':' +
             getPort() +
-            "/itemicons/" +
+            '/itemicons/' +
             item.icon +
-            ".png"
-          );
+            '.png'
+          )
         }
       }
     }
   }
-};
+}
 </script>
 <style lang="scss" scoped>
 .cardBox {
@@ -92,8 +92,8 @@ export default {
     right: 0;
   }
   .texts{
-      color: rgb(255, 163, 3);
-      text-shadow: 1px 1px 1px white;
+      color:orange;
+      text-shadow: 1px 1px 1px blue;
       font-size: 17px;
       font-weight: bold;
   }

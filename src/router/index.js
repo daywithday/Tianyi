@@ -6,12 +6,6 @@ Vue.use(Router)
 /* Layout */
 import Layout from '@/layout'
 
-/* Router Modules */
-import componentsRouter from './modules/components'
-import chartsRouter from './modules/charts'
-import tableRouter from './modules/table'
-import nestedRouter from './modules/nested'
-
 /**
  * Note: sub-menu only appear when route children.length >= 1
  * Detail see: https://panjiachen.github.io/vue-element-admin-site/guide/essentials/router-and-nav.html
@@ -164,19 +158,42 @@ export const asyncRoutes = [
       }
     ]
   },
-
   {
-    path: '/theme',
+    path: '/publicCity',
     component: Layout,
     children: [
       {
-        path: 'index',
-        component: () => import('@/views/theme/index'),
-        name: 'Theme',
-        meta: { title: 'theme', icon: 'theme' }
+        path: 'publicCity',
+        component: () => import('@/views/publicCity/index'),
+        name: 'PublicCity',
+        meta: { title: 'publicCity', icon: 'tab', noCache: true }
       }
     ]
   },
+  {
+    path: '/privateHome',
+    component: Layout,
+    children: [
+      {
+        path: 'privateHome',
+        component: () => import('@/views/privateHome/index'),
+        name: 'PrivateHome',
+        meta: { title: 'privateHome', icon: 'guide', noCache: true }
+      }
+    ]
+  },
+  // {
+  //   path: '/theme',
+  //   component: Layout,
+  //   children: [
+  //     {
+  //       path: 'index',
+  //       component: () => import('@/views/theme/index'),
+  //       name: 'Theme',
+  //       meta: { title: 'theme', icon: 'theme' }
+  //     }
+  //   ]
+  // },
 
   {
     path: '/i18n',
@@ -191,16 +208,16 @@ export const asyncRoutes = [
     ]
   },
 
-  {
-    path: 'external-link',
-    component: Layout,
-    children: [
-      {
-        path: 'https://github.com/PanJiaChen/vue-element-admin',
-        meta: { title: 'externalLink', icon: 'link' }
-      }
-    ]
-  },
+  // {
+  //   path: 'external-link',
+  //   component: Layout,
+  //   children: [
+  //     {
+  //       path: 'https://github.com/PanJiaChen/vue-element-admin',
+  //       meta: { title: 'externalLink', icon: 'link' }
+  //     }
+  //   ]
+  // },
 
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }

@@ -19,10 +19,10 @@
 
     <div class="user-bio">
       <div class="user-education user-bio-section">
-        <div class="user-bio-section-header"><svg-icon icon-class="education" /><span>Education</span></div>
+        <div class="user-bio-section-header"><svg-icon icon-class="education" /><span>About</span></div>
         <div class="user-bio-section-body">
           <div class="text-muted">
-            JS in Computer Science from the University of Technology
+            {{ $t('about.content') }}
           </div>
         </div>
       </div>

@@ -1,11 +1,14 @@
 export default {
   route: {
     dashboard: '首页',
-    chats:'聊天记录',
-    config:'公共配置',
-    management:'功能管理',
-    notice:'游戏公告',
-    player:'玩家管理',
+    chats: '聊天记录',
+    config: '公共配置',
+    management: '功能管理',
+    notice: '游戏公告',
+    player: '玩家管理',
+    publicCity: '公共回城',
+    privateHome: '私人回家',
+    i18n: '切换语言',
     documentation: '文档',
     guide: '引导页',
     permission: '权限测试页',
@@ -65,12 +68,11 @@ export default {
     exportZip: 'Export Zip',
     theme: '换肤',
     clipboardDemo: 'Clipboard',
-    i18n: '国际化',
     externalLink: '外链',
     profile: '个人中心'
   },
-  button:{
-    save:'保存'
+  button: {
+    save: '保存'
   },
   login: {
     server: '服务器地址',
@@ -81,81 +83,6 @@ export default {
     accessTokenTip: '请输入服务器accessToken,AccessToken 生成位置(配置文件)：7 Days to Die Dedicated Server \\ LSTY \\ functionConfig.xml',
     title: '系统登录',
     logIn: '登录'
-  },
-  serverInfo:{
-    players:'在线玩家',
-    hostiles:'僵尸',
-    animals:'动物',
-    GameType: "游戏类型",
-    GameName: "地图名称",
-    GameHost: "游戏地址",
-    ServerDescription: "服务器简介",
-    ServerWebsiteURL: "ServerWebsiteURL",
-    LevelName: "LevelName",
-    GameMode: "游戏模式",
-    Version: "版本明细",
-    IP: "IP",
-    CountryCode: "CountryCode",
-    SteamID: "SteamID",
-    CompatibilityVersion: "兼容版本",
-    Platform: "平台",
-    ServerLoginConfirmationText: "ServerLoginConfirmationText",
-    Port: "端口",
-    CurrentPlayers: "默认玩家",
-    MaxPlayers: "最大玩家",
-    GameDifficulty: "游戏难度",
-    DayNightLength: "游戏一天时间",
-    BloodMoonFrequency: "血月频率",
-    BloodMoonRange: "随机血月范围",
-    BloodMoonWarning: "血月警告",
-    ZombiesRun: "丧尸基础奔跑速度",
-    ZombieMove: "丧尸移动速度",
-    ZombieMoveNight: "丧尸夜晚移动速度",
-    ZombieFeralMove: "丧尸狂暴移动速度",
-    ZombieBMMove: "丧尸血月移动速度",
-    XPMultiplier: "经验百分比",
-    DayCount: "DayCount",
-    Ping: "Ping",
-    DropOnDeath: "死亡掉落",
-    DropOnQuit: "退出游戏掉落",
-    BloodMoonEnemyCount: "血月人均丧尸",
-    "Enemy Difficulty": "疯子模式",
-    PlayerKillingMode: "玩家互伤",
-    CurrentServerTime: "CurrentServerTime",
-    DayLightLength: "白天长度",
-    BlockDurabilityModifier: "BlockDurabilityModifier",
-    BlockDamagePlayer: "玩家方块伤害",
-    BlockDamageAI: "丧尸方块伤害",
-    BlockDamageAIBM: "丧尸血月方块伤害",
-    AirDropFrequency: "空投频率",
-    LootAbundance: "搜刮百分比",
-    LootRespawnDays: "物资刷新天数",
-    MaxSpawnedZombies: "全图丧尸上限",
-    LandClaimCount: "领地石数量",
-    LandClaimSize: "领地石范围",
-    LandClaimDeadZone: "领地石间隔",
-    LandClaimExpiryTime: "领地石失效时间",
-    LandClaimDecayMode: "领地石失效快慢",
-    LandClaimOnlineDurabilityModifier: "在线时领地石硬度",
-    LandClaimOfflineDurabilityModifier: "离线时领地石硬度",
-    LandClaimOfflineDelay: "玩家取消领地石后硬度从在线硬度转换为离线硬度后的分钟数",
-    PartySharedKillRange: "经验共享范围",
-    MaxSpawnedAnimals: "野生动物数量",
-    ServerVisibility: "服务器在加入游戏列表的可见性",
-    BedrollExpiryTime: "睡袋有效天数",
-    IsDedicated: "IsDedicated",
-    IsPasswordProtected: "IsPasswordProtected",
-    ShowFriendPlayerOnMap: "ShowFriendPlayerOnMap",
-    BuildCreate: "BuildCreate",
-    EACEnabled: "EACEnabled",
-    Architecture64: "Architecture64",
-    StockSettings: "StockSettings",
-    StockFiles: "StockFiles",
-    ModdedConfig: "ModdedConfig",
-    RequiresMod: "RequiresMod",
-    AirDropMarker: "AirDropMarker",
-    EnemySpawnMode: "EnemySpawnMode",
-    IsPublic: "IsPublic"
   },
   config: {
     chatCommandCacheMaxCount: 'chatCommandCacheMaxCount',
@@ -169,23 +96,67 @@ export default {
     port: '端口'
   },
   management: {
-    CommonConfig:'公共配置',
-    GameNotice:'游戏公告',
-    AntiCheat:'反作弊',
-    PointsSystem:'积分系统',
-    TeleportCity:'公共回城',
-    TeleportHome:'私人回家'
+    CommonConfig: '公共配置',
+    GameNotice: '游戏公告',
+    AntiCheat: '反作弊',
+    PointsSystem: '积分系统',
+    TeleportCity: '公共回城',
+    TeleportHome: '私人回家'
   },
-  notice:{
-    alternateInterval:'循环时间',
-    alternateNotice:'轮播公告',
-    functionName:'functionName',
-    isEnabled:'是否启用',
-    welcomeNotice:'欢迎提示'
+  notice: {
+    alternateInterval: '循环时间',
+    alternateNotice: '轮播公告',
+    functionName: 'functionName',
+    isEnabled: '是否启用',
+    welcomeNotice: '欢迎提示'
   },
-  player:{
-    allPlayer:'历史玩家',
-    onlinePlayer:'在线玩家'
+  player: {
+    allPlayer: '历史玩家',
+    onlinePlayer: '在线玩家',
+    refresh: '刷新列表',
+    package: '查看背包',
+    equipment: '装备',
+    belt: '腰带',
+    bag: '背包'
+  },
+  publicCity: {
+    availableCityTips: '主城列表',
+    coolingTips: '冷却提示',
+    functionName: 'functionName',
+    isEnabled: '是否启用',
+    noneCityTips: '无主城提示',
+    pointsNotEnoughTips: '积分不足提示',
+    queryListCmd: '指令',
+    queryListTips: '传送提示',
+    teleInterval: '冷却时间',
+    teleSucceedTips: '回城成功提示'
+  },
+  privateHome: {
+    coolingTips: '冷却提示',
+    deleteHomeCmdPrefix: '删除指令',
+    deleteSucceedTips: '删除成功提示',
+    functionName: 'functionName',
+    homeNotFoundTips: '无坐标提示',
+    homePositionTips: '坐标提示',
+    isEnabled: '是否启用',
+    maxCanSetCount: '最大数量',
+    noneHaveHomeTips: '未设置提示',
+    overLimitTips: '超过提示',
+    overwriteOldSucceedTips: '覆盖提示',
+    ownedHomeTips: '已拥有提示',
+    pointsRequiredForSet: '设置积分',
+    pointsRequiredForTele: '传送积分',
+    queryListCmd: '查询指令',
+    setHomeCmdPrefix: '设置指令',
+    setPointsNotEnoughTips: '设置积分不足指令',
+    setSucceedTips: '设置成功提示',
+    teleHomeCmdPrefix: '回家指令',
+    teleInterval: '冷却时间',
+    telePointsNotEnoughTips: '回家积分不足提示',
+    teleSucceedTips: '回家成功提示'
+  },
+  about: {
+    content: '天依七日杀管理系统'
   },
   navbar: {
     dashboard: '首页',
@@ -195,7 +166,7 @@ export default {
     theme: '换肤',
     size: '布局大小'
   },
-  
+
   documentation: {
     documentation: '文档',
     github: 'Github 地址'

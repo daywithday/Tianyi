@@ -1,50 +1,50 @@
 <template>
-    <div>
-        <div class="bigTitle">装备：</div>
-        <el-row
-            :gutter="8"
-            class="panel-group"
-        >
-            <slot v-for="item in packageList.equipment">
-                <item v-if="item" :item="item"></item>
-            </slot>
+  <div>
+    <div class="bigTitle">{{ $t('player.equipment') }}：</div>
+    <el-row
+      :gutter="8"
+      class="panel-group"
+    >
+      <slot v-for="item in packageList.equipment">
+        <item v-if="item" :item="item" />
+      </slot>
 
-        </el-row>
-        <div class="bigTitle">腰带：</div>
-        <el-row
-            :gutter="8"
-            class="panel-group"
-        >
-            <slot v-for="item in packageList.belt">
-                <item v-if="item" :item="item"></item>
-            </slot>
+    </el-row>
+    <div class="bigTitle">{{ $t('player.belt') }}：</div>
+    <el-row
+      :gutter="8"
+      class="panel-group"
+    >
+      <slot v-for="item in packageList.belt">
+        <item v-if="item" :item="item" />
+      </slot>
 
-        </el-row>
-        <div class="bigTitle">背包：</div>
-        <el-row
-            :gutter="8"
-            class="panel-group"
-        >
-            <slot v-for="item in packageList.bag">
-                <item v-if="item" :item="item"></item>
-            </slot>
+    </el-row>
+    <div class="bigTitle">{{ $t('player.bag') }}：</div>
+    <el-row
+      :gutter="8"
+      class="panel-group"
+    >
+      <slot v-for="item in packageList.bag">
+        <item v-if="item" :item="item" />
+      </slot>
 
-        </el-row>
-    </div>
+    </el-row>
+  </div>
 </template>
 <script>
 
 import item from './item'
 export default {
-  props: ["packageList"],
+  components: { item },
+  props: ['packageList'],
   data() {
-    return {};
+    return {}
   },
-  components:{item},
   methods: {
-    
+
   }
-};
+}
 </script>
 <style lang="scss" scoped>
 .bigTitle{
