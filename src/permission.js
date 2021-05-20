@@ -26,7 +26,18 @@ router.beforeEach(async(to, from, next) => {
     setAccesstToken(hasToken)
     setBaseUrl('http://' + hasServer + ':' + hasPort)
   }
-  if (hasToken) {
+  if (hasToken) { 
+    if(to.path === '/dashboard'){
+      store.dispatch('settings/changeSetting', {
+        key: 'showSettings',
+        value: true
+      })
+    }else{
+      store.dispatch('settings/changeSetting', {
+        key: 'showSettings',
+        value: false
+      })
+    }
     if (to.path === '/login') {
       // if is logged in, redirect to the home page
       next({ path: '/' })

@@ -1,0 +1,108 @@
+<template>
+    <el-col
+        v-if="item"
+        :xs="{span: 12}"
+        :sm="{span: 6}"
+        :md="{span: 4}"
+        :lg="{span: 3}"
+        :xl="{span: 2}"
+        class="cardBox"
+    >
+        <div style="width: 100px; height: 100px;position: relative;">
+            <el-image
+                style="width: 100px; height: 100px"
+                :src="getImage(item)"
+                fit="cover"
+            ></el-image>
+
+            <el-progress
+                class="postion"
+                v-if="item.useTimes && item.maxUseTimes"
+                :percentage="parseInt(((item.maxUseTimes - item.useTimes) / item.maxUseTimes)*100)"
+                :format="format"
+            />
+            <p
+                class="postion texts"
+                v-else
+            >{{item.count}}</p>
+        </div>
+
+        {{item.itemName}}
+
+    </el-col>
+</template>
+<script>
+import { getServer, getPort } from "@/utils/auth";
+export default {
+  props: ["item"],
+  methods: {
+      format(percentage) {
+        return ''
+      },
+    getImage(item) {
+      if (item.iconcolor !== "FFFFFF") {
+        return (
+          "http://" +
+          getServer() +
+          ":" +
+          getPort() +
+          "/itemicons/" +
+          item.icon +
+          "__" +
+          item.iconcolor +
+          ".png"
+        );
+      } else {
+        if (global_itemicons.has(item.icon)) {
+          return `https://cdn.jsdelivr.net/gh/1249993110/7dtd@main/itemicons/${
+            item.icon
+          }.png`;
+        } else {
+          return (
+            "http://" +
+            getServer() +
+            ":" +
+            getPort() +
+            "/itemicons/" +
+            item.icon +
+            ".png"
+          );
+        }
+      }
+    }
+  }
+};
+</script>
+<style lang="scss" scoped>
+.cardBox {
+  width: 122px;
+  height: 122px;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  .el-progress {
+    width: 100%;
+  }
+  .postion {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+  .texts{
+      color: rgb(255, 163, 3);
+      text-shadow: 1px 1px 1px white;
+      font-size: 17px;
+      font-weight: bold;
+  }
+}
+</style>
+<style lang="scss">
+.cardBox .el-progress-bar {
+    padding: 0;
+    padding-right: 0px;
+  }
+</style>
+

@@ -1,23 +1,25 @@
 <template>
   <el-card class="box-card-component" style="">
     <div slot="header" class="box-card-header">
-      <img src="../../../../../static/images/logo.png">
+      <img fit="contain" src="../../../../../static/images/background.png">
     </div>
     <div style="position:relative;">
-      <pan-thumb :image="avatar" class="panThumb" /><br>
-      <mallki class-name="mallki-text" :text="serverInfo.GameHost.value" /> <br>
-      <mallki class-name="mallki-text2" :text="'Days:' + serverState.gametime.days +','+ serverState.gametime.hours+':'+ serverState.gametime.minutes" />
+      <div class="mycontentBox">
+        <pan-thumb :image="avatar" class="panThumb" /> &#x3000;&#x3000;
+        <mallki class-name="mallki-text" :text="serverInfo.GameHost" /> &#x3000;&#x3000;
+        <mallki class-name="mallki-text2" :text="'Days:' + serverState.gametime.days +','+ serverState.gametime.hours+':'+ serverState.gametime.minutes" />
+      </div>
       <div style="padding-top:35px;" class="progress-item">
-        <span>{{$t('serverInfo.players') +'&#x3000;' + serverState.players+' / '+serverInfo.MaxPlayers.value}}</span>
-        <el-progress :percentage="serverState.players / serverInfo.MaxPlayers.value" />
+        <span>{{ $t('serverInfo.players') +'&#x3000;' + serverState.players+' / '+serverInfo.MaxPlayers }}</span>
+        <el-progress :percentage="parseInt((serverState.players / serverInfo.MaxPlayers)*100)" />
       </div>
       <div class="progress-item">
-        <span>{{$t('serverInfo.hostiles') +'&#x3000;' + serverState.hostiles +'/'+ serverInfo.MaxSpawnedZombies.value}}</span>
-        <el-progress :percentage="serverState.hostiles / serverInfo.MaxSpawnedZombies.value" />
+        <span>{{ $t('serverInfo.hostiles') +'&#x3000;' + serverState.hostiles +'/'+ serverInfo.MaxSpawnedZombies }}</span>
+        <el-progress :percentage="parseInt((serverState.hostiles / serverInfo.MaxSpawnedZombies)*100)" />
       </div>
       <div class="progress-item">
-        <span>{{$t('serverInfo.animals') +'&#x3000;' + serverState.animals +'/'+ serverInfo.MaxSpawnedAnimals.value}}</span>
-        <el-progress :percentage="serverState.animals / serverInfo.MaxSpawnedAnimals.value" />
+        <span>{{ $t('serverInfo.animals') +'&#x3000;' + serverState.animals +'/'+ serverInfo.MaxSpawnedAnimals }}</span>
+        <el-progress :percentage="parseInt((serverState.animals / serverInfo.MaxSpawnedAnimals)*100)" />
       </div>
     </div>
   </el-card>
@@ -30,7 +32,6 @@ import Mallki from '@/components/TextHoverEffect/Mallki'
 
 export default {
   components: { PanThumb, Mallki },
-  props:['serverState','serverInfo'],
   filters: {
     statusFilter(status) {
       const statusMap = {
@@ -40,6 +41,7 @@ export default {
       return statusMap[status]
     }
   },
+  props: { serverState: Object, serverInfo: Object },
   data() {
     return {
       statisticsData: {
@@ -112,6 +114,9 @@ export default {
     .mallki-text{
       display: none;
     }
+  }
+  .mycontentBox>*{
+    margin-right: 5px;
   }
 }
 </style>

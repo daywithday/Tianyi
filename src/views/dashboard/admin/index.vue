@@ -1,13 +1,19 @@
 <template>
   <div class="dashboard-editor-container">
-    <github-corner class="github-corner" />
-
+    <el-image
+      style="width: 100%;height:150px;"
+      :src="logoimg"
+      fit="contain"
+    />
     <el-row :gutter="8">
-      <el-col :xs="{span: 24}" :sm="{span: 24}" :md="{span: 24}" :lg="{span: 12}" :xl="{span: 12}" style="margin-bottom:30px;">
-        <box-card v-if="serverInfo" :serverState="serverState" :serverInfo="serverInfo"/>
+      <el-col :xs="{span: 24}" :sm="{span: 24}" :md="{span: 24}" :lg="{span: 24}" :xl="{span: 24}" style="margin-bottom:30px;">
+        <box-card v-if="serverInfo && serverState" :server-state="serverState" :server-info="serverInfo" />
       </el-col>
     </el-row>
-    <panel-group />
+
+    <github-corner class="github-corner" />
+
+    <!-- <panel-group v-if="serverInfoList" :server-info-list="serverInfoList" /> -->
   </div>
 </template>
 
@@ -15,7 +21,8 @@
 import GithubCorner from '@/components/GithubCorner'
 import PanelGroup from './components/PanelGroup'
 import BoxCard from './components/BoxCard'
-import { RetrieveServerStats,RetrieveServerInfo } from '@/utils/api'
+import logo from '../../../../static/images/logo.png'
+import { RetrieveServerStats, RetrieveServerInfo } from '@/utils/api'
 export default {
   name: 'DashboardAdmin',
   components: {
@@ -25,21 +32,36 @@ export default {
   },
   data() {
     return {
-      serverState:'',
-      serverInfo:''
+      serverState: '',
+      serverInfo: '',
+      serverInfoList: '',
+      logoimg: logo
     }
   },
-  mounted(){
-    let that = this
-    RetrieveServerStats().then(res =>{
+  mounted() {
+    const that = this
+    RetrieveServerStats().then(res => {
       that.serverState = res.data
     })
-    RetrieveServerInfo().then(res =>{
-      that.serverInfo = res.data
+    RetrieveServerInfo().then(res => {
+      const newObj = {}
+      const serverInfoList = []
+      let bbj = {}
+      for (const key in res.data) {
+        const obj = {}
+        obj.key = key
+        bbj[key] = key
+        obj.value = res.data[key].value + ''
+        serverInfoList.push(obj)
+        newObj[key] = res.data[key].value + ''
+      }
+      console.log(bbj)
+      that.serverInfoList = serverInfoList
+      that.serverInfo = newObj
     })
   },
   methods: {
-    
+
   }
 }
 </script>

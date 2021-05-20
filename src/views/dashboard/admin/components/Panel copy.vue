@@ -1,19 +1,28 @@
 <template>
-  <el-row :gutter="8" class="panel-group">
-    <slot v-for="item in serverInfoList">
-      <Panel v-if="item.value" :key-name="item.key" :key-value="item.value" />
-    </slot>
-
-  </el-row>
+  <el-col :xs="24" :sm="12" :lg="8" class="card-panel-col">
+    <div class="card-panel">
+      <!-- <div class="card-panel-icon-wrapper icon-people">
+          <i class="el-icon-date card-panel-icon" />
+        </div> -->
+      <div class="card-panel-description">
+        <div class="card-panel-text">
+          {{ keyName }}
+        </div>
+        <!-- <count-to :start-val="0" :end-val="102400" :duration="2600" class="card-panel-num" /> -->
+        <p>{{ keyValue }}</p>
+      </div>
+    </div>
+  </el-col>
 </template>
 
 <script>
-import Panel from './Panel'
+import CountTo from 'vue-count-to'
+
 export default {
   components: {
-    Panel
+    CountTo
   },
-  props: { serverInfoList: Array },
+  props: ['keyName', 'keyValue'],
   methods: {
     handleSetLineChartData(type) {
       this.$emit('handleSetLineChartData', type)
