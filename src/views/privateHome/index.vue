@@ -83,7 +83,6 @@ import {
   RetrieveTeleportHomeConfig,
   UpdateTeleportHomeConfig
 } from '@/utils/api'
-import { setToken, setPort } from '@/utils/auth'
 export default {
   data() {
     return {
@@ -129,8 +128,6 @@ export default {
       this.$confirm('确定保存？')
         .then((_) => {
           UpdateTeleportHomeConfig(that.form).then((res) => {
-            setToken(that.form.webConfig.accessToken)
-            setPort(that.form.webConfig.port)
             that.$notify({
               title: 'Success',
               dangerouslyUseHTMLString: true,

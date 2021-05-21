@@ -8,6 +8,7 @@ export default {
     player: '玩家管理',
     publicCity: '公共回城',
     privateHome: '私人回家',
+    pointsSystem: '积分系统',
     i18n: '切换语言',
     documentation: '文档',
     guide: '引导页',
@@ -72,7 +73,10 @@ export default {
     profile: '个人中心'
   },
   button: {
-    save: '保存'
+    save: '保存',
+    create: '创建',
+    search: '搜索',
+    send: '修改'
   },
   login: {
     server: '服务器地址',
@@ -129,7 +133,11 @@ export default {
     queryListCmd: '指令',
     queryListTips: '传送提示',
     teleInterval: '冷却时间',
-    teleSucceedTips: '回城成功提示'
+    teleSucceedTips: '回城成功提示',
+    cityName: '城市名称',
+    command: '命令',
+    pointsRequired: '积分花费',
+    position: '三维坐标'
   },
   privateHome: {
     coolingTips: '冷却提示',
@@ -157,6 +165,22 @@ export default {
   },
   about: {
     content: '天依七日杀管理系统'
+  },
+  pointsSystem: {
+    functionName: 'functionName',
+    initialCount: '初始积分',
+    isEnabled: '是否启用',
+    neverSignInTips: '未签到提示',
+    queryPointsCmd: '查询指令',
+    queryPointsTips: '查询提示',
+    rewardCount: '签到积分',
+    signCmd: '签到指令',
+    signFailTips: '签到失败提示',
+    signInterval: '签到冷却时间',
+    signSucceedTips: '签到成功提示',
+    playerPoints: '玩家积分',
+    steamId: 'steamId',
+    count: '积分'
   },
   navbar: {
     dashboard: '首页',

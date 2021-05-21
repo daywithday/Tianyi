@@ -182,6 +182,18 @@ export const asyncRoutes = [
       }
     ]
   },
+  {
+    path: '/pointsSystem',
+    component: Layout,
+    children: [
+      {
+        path: 'pointsSystem',
+        component: () => import('@/views/pointsSystem/index'),
+        name: 'PointsSystem',
+        meta: { title: 'pointsSystem', icon: 'star', noCache: true }
+      }
+    ]
+  },
   // {
   //   path: '/theme',
   //   component: Layout,

@@ -8,6 +8,7 @@ export default {
     player: 'Player management',
     publicCity: 'Public City',
     privateHome: 'Private Home',
+    pointsSystem: 'Points System',
     i18n: 'Switch language',
     documentation: 'Documentation',
     guide: 'Guide',
@@ -72,7 +73,10 @@ export default {
     profile: 'Profile'
   },
   button: {
-    save: 'save'
+    save: 'save',
+    create: 'create',
+    search: 'Search',
+    send: 'modify'
   },
   login: {
     server: 'server address',
@@ -129,7 +133,11 @@ export default {
     queryListCmd: 'Command',
     queryListTips: 'Transfer Tips',
     teleInterval: 'Cooldown time',
-    teleSucceedTips: 'Successful tips for returning to the city'
+    teleSucceedTips: 'Successful tips for returning to the city',
+    cityName: 'city name',
+    command: 'Command',
+    pointsRequired: 'Points spent',
+    position: 'Three-dimensional coordinates'
   },
   privateHome: {
     coolingTips: 'Cooling Tips',
@@ -157,6 +165,22 @@ export default {
   },
   about: {
     content: 'Tianyi Seven Days Kill Management System'
+  },
+  pointsSystem: {
+    functionName: 'functionName',
+    initialCount: 'Initial Points',
+    isEnabled: 'Whether to enable',
+    neverSignInTips: 'Not Sign In Tips',
+    queryPointsCmd: 'Query Command',
+    queryPointsTips: 'Query Tips',
+    rewardCount: 'check-in points',
+    signCmd: 'Sign In Instructions',
+    signFailTips: 'Sign in failed prompt',
+    signInterval: 'Sign in cooling time',
+    signSucceedTips: 'Successful sign-in prompt',
+    playerPoints: 'player points',
+    steamId: 'steamId',
+    count: 'points'
   },
   navbar: {
     dashboard: 'Dashboard',

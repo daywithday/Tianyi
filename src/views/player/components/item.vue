@@ -8,9 +8,9 @@
     :xl="{span: 2}"
     class="cardBox"
   >
-    <div style="width: 100px; height: 100px;position: relative;">
+    <div style="width: 70px; height: 70px;position: relative;">
       <el-image
-        style="width: 100px; height: 100px"
+        style="width: 70px; height: 70px"
         :src="getImage(item)"
         fit="cover"
       />
@@ -75,14 +75,14 @@ export default {
 </script>
 <style lang="scss" scoped>
 .cardBox {
-  width: 122px;
-  height: 122px;
+  width: 80px;
+  height: 80px;
   display: flex;
   position: relative;
   justify-content: center;
   align-content: center;
   flex-wrap: wrap;
-  margin-bottom: 10px;
+  margin: 10px;
   .el-progress {
     width: 100%;
   }
