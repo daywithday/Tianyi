@@ -11,12 +11,12 @@
         type="index"
         min-width="100"
         width="100"
-        label="index"
+        :label="$t('player.index')"
       />
       <el-table-column
         property="name"
         min-width="150"
-        label="name"
+        :label="$t('player.name')"
       />
       <el-table-column
         property="steamId"
@@ -31,14 +31,14 @@
       />
       <el-table-column
         property="totalPlayTime"
-        min-width="150"
-        label="totalPlayTime"
+        min-width="180"
+        :label="$t('player.totalPlayTime')"
         sortable
       />
       <el-table-column
         property="lastOnline"
         min-width="200"
-        label="lastOnline"
+        :label="$t('player.lastOnline')"
       />
     </el-table>
     <el-dialog
@@ -59,51 +59,66 @@
 
 </template>
 <script>
-import { RetrieveInventory } from '@/utils/api'
-import myPackage from './myPackage'
+import { RetrieveInventory } from "@/utils/api";
+import myPackage from "./myPackage";
 export default {
   components: { myPackage },
-  props: ['player', 'device'],
+  props: ["player", "device"],
   data() {
     return {
-      currentRow: '',
+      currentRow: "",
       drawer: false,
-      direction: 'rtl',
-      packageList: ''
+      direction: "rtl",
+      packageList: ""
+    };
+  },
+  watch: {
+    player(nval, oval) {
+      if (nval && nval.length > 0) {
+        for (let item of nval) {
+          //for of 推荐用在遍历数组
+          // console.log(item);
+          item.totalPlayTime = parseInt(item.totalPlayTime / 1440) +this.$t('player.day')+ parseInt(item.totalPlayTime / 60) +this.$t('player.hour')+ parseInt(item.totalPlayTime % 60) + this.$t('player.minit')
+          item.lastOnline = item.lastOnline.split('.')[0]
+        }
+      }
+    },
+    lang(nval,oval){
+      console.log('change')
     }
   },
   mounted() {
-    const s = document.createElement('script')
-    s.type = 'text/javascript'
-    s.src = 'https://cdn.jsdelivr.net/gh/1249993110/7dtd@main/itemicon.js'
-    document.body.appendChild(s)
+    const s = document.createElement("script");
+    s.type = "text/javascript";
+    s.src = "https://cdn.jsdelivr.net/gh/1249993110/7dtd@main/itemicon.js";
+    document.body.appendChild(s);
   },
   methods: {
     handleClose(done) {
-      this.$confirm('确认关闭？')
+      this.$confirm("确认关闭？")
         .then(_ => {
-          done()
+          done();
         })
-        .catch(_ => {})
+        .catch(_ => {});
     },
     getPack() {
-      const that = this
+      const that = this;
       if (this.currentRow) {
-        const steamId = this.currentRow.steamId
+        const steamId = this.currentRow.steamId;
         RetrieveInventory({ steamId: steamId }).then(res => {
-          that.packageList = res.data
-          that.drawer = true
-        })
+          that.packageList = res.data;
+          that.drawer = true;
+        });
       }
     },
     reFresh() {
-      this.$emit('reFresh')
+      this.$emit("reFresh");
     },
     handleCurrentChange(val) {
-      this.currentRow = val
+      this.currentRow = val;
     }
   }
-}
+};
 </script>
 <style lang="scss" scoped>
 </style>

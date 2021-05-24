@@ -40,4 +40,6 @@ export const RetrieveServerInfo = data => get('/api/RetrieveServerInfo', data) /
 
 export const RetrieveServerStats = data => get('/api/RetrieveServerStats', data) // 获取服务器统计
 
-export const RetrieveKnownPlayer3 = data => get('/api/RetrieveKnownPlayer', data)
+export const RetrieveChatLogPaged = data => post('/api/RetrieveChatLogPaged', data) // 获取聊天记录
+
+export const RetrieveLocalization = data => get('/api/RetrieveLocalization', data) // 获取背包翻译

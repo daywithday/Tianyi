@@ -23,6 +23,7 @@ import PanelGroup from './components/PanelGroup'
 import BoxCard from './components/BoxCard'
 import logo from '../../../../static/images/logo.png'
 import { RetrieveServerStats, RetrieveServerInfo } from '@/utils/api'
+import { getVersion, setVersion } from '@/utils/auth'
 export default {
   name: 'DashboardAdmin',
   components: {
@@ -40,6 +41,13 @@ export default {
   },
   mounted() {
     const that = this
+    let version = getVersion()
+    if (version && version >= 12) {
+      
+    } else {
+      setVersion(12)
+      this.$router.push({path:'./log/log'})
+    }
     RetrieveServerStats().then(res => {
       that.serverState = res.data
     })

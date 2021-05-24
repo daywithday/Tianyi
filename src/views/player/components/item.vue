@@ -27,51 +27,99 @@
       >{{ item.count }}</p>
     </div>
 
-    {{ item.itemName }}
+    {{ itemNames }}
 
   </el-col>
 </template>
 <script>
-import { getServer, getPort } from '@/utils/auth'
+import { getServer, getPort, getTranslate, setTranslate } from "@/utils/auth";
+import { RetrieveLocalization } from "@/utils/api";
 export default {
-  props: ['item'],
+  props: ["item"],
+  data() {
+    return {
+      itemName:''
+    };
+  },
+  computed: {
+    itemNames() {
+      return this.itemName?this.itemName:this.item?this.item.itemName?this.item.itemName:'':''
+    },
+    lang: {
+      get() {
+        return this.$store.state.app.language;
+      },
+      set(lang) {
+        this.$i18n.locale = lang;
+        this.$store.dispatch("app/setLanguage", lang);
+      }
+    }
+  },
+  watch: {
+    lang() {
+      this.translate(this.item.itemName)
+    }
+  },
+  mounted(){
+    this.translate(this.item.itemName)
+  },
   methods: {
+    translate(name) {
+      let that = this;
+      let TranslateObj = getTranslate() ? JSON.parse(getTranslate()) : {zh:{},en:{}};
+      let nName = "";
+      if (TranslateObj[that.lang][name]) {
+        nName = TranslateObj[that.lang][name];
+      } else {
+        RetrieveLocalization({
+          language: that.lang == "zh" ? "schinese" : "english",
+          itemName: name
+        }).then(res => {
+          nName = res.data;
+          TranslateObj[that.lang][name] = nName;
+          that.itemName = nName;
+          setTranslate(JSON.stringify(TranslateObj));
+        });
+      }
+      that.itemName = nName;
+      return nName;
+    },
     format(percentage) {
-      return ''
+      return "";
     },
     getImage(item) {
-      if (item.iconcolor !== 'FFFFFF') {
+      if (item.iconcolor !== "FFFFFF") {
         return (
-          'http://' +
+          "http://" +
           getServer() +
-          ':' +
+          ":" +
           getPort() +
-          '/itemicons/' +
+          "/itemicons/" +
           item.icon +
-          '__' +
+          "__" +
           item.iconcolor +
-          '.png'
-        )
+          ".png"
+        );
       } else {
         if (global_itemicons.has(item.icon)) {
           return `https://cdn.jsdelivr.net/gh/1249993110/7dtd@main/itemicons/${
             item.icon
-          }.png`
+          }.png`;
         } else {
           return (
-            'http://' +
+            "http://" +
             getServer() +
-            ':' +
+            ":" +
             getPort() +
-            '/itemicons/' +
+            "/itemicons/" +
             item.icon +
-            '.png'
-          )
+            ".png"
+          );
         }
       }
     }
   }
-}
+};
 </script>
 <style lang="scss" scoped>
 .cardBox {
@@ -91,18 +139,18 @@ export default {
     bottom: 0;
     right: 0;
   }
-  .texts{
-      color:orange;
-      text-shadow: 1px 1px 1px blue;
-      font-size: 17px;
-      font-weight: bold;
+  .texts {
+    color: orange;
+    text-shadow: 1px 1px 1px blue;
+    font-size: 17px;
+    font-weight: bold;
   }
 }
 </style>
 <style lang="scss">
 .cardBox .el-progress-bar {
-    padding: 0;
-    padding-right: 0px;
-  }
+  padding: 0;
+  padding-right: 0px;
+}
 </style>
 

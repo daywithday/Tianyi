@@ -32,8 +32,11 @@
             <el-form-item :label="$t('config.openInDefaultBrowser')">
                 <el-switch v-model="form.webConfig.openInDefaultBrowser"></el-switch>
             </el-form-item>
-            <el-form-item :label="$t('config.port')">
-                <el-input v-model="form.webConfig.port"></el-input>
+            <el-form-item :label="$t('config.webApiPort')">
+                <el-input v-model="form.webConfig.webApiPort"></el-input>
+            </el-form-item>
+            <el-form-item :label="$t('config.webSocketPort')">
+                <el-input v-model="form.webConfig.webSocketPort"></el-input>
             </el-form-item>
             <el-form-item>
                 <el-button

@@ -1,11 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-
+import {getServer,getPort} from '@/utils/auth'
 Vue.use(Router)
 
 /* Layout */
 import Layout from '@/layout'
-
+let server = getServer()
+let port = getPort()
 /**
  * Note: sub-menu only appear when route children.length >= 1
  * Detail see: https://panjiachen.github.io/vue-element-admin-site/guide/essentials/router-and-nav.html
@@ -194,6 +195,30 @@ export const asyncRoutes = [
       }
     ]
   },
+  {
+    path: '/telnet',
+    component: Layout,
+    children: [
+      {
+        path: 'telnet',
+        component: () => import('@/views/telnet/index'),
+        name: 'Telnet',
+        meta: { title: 'telnet', icon: 'example', noCache: true }
+      }
+    ]
+  },
+  {
+    path: '/log',
+    component: Layout,
+    children: [
+      {
+        path: 'log',
+        component: () => import('@/views/log/log'),
+        name: 'Log',
+        meta: { title: 'log', icon: 'bug', noCache: true }
+      }
+    ]
+  },
   // {
   //   path: '/theme',
   //   component: Layout,
@@ -220,16 +245,16 @@ export const asyncRoutes = [
     ]
   },
 
-  // {
-  //   path: 'external-link',
-  //   component: Layout,
-  //   children: [
-  //     {
-  //       path: 'https://github.com/PanJiaChen/vue-element-admin',
-  //       meta: { title: 'externalLink', icon: 'link' }
-  //     }
-  //   ]
-  // },
+  {
+    path: 'external-link',
+    component: Layout,
+    children: [
+      {
+        path: ('http://'+server+':'+port+'/swagger-ui/index.html'),
+        meta: { title: 'externalLink', icon: 'link' }
+      }
+    ]
+  },
 
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }

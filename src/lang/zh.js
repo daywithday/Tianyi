@@ -9,6 +9,9 @@ export default {
     publicCity: '公共回城',
     privateHome: '私人回家',
     pointsSystem: '积分系统',
+    externalLink: '接口文档',
+    telnet:'终端',
+    log:'更新日志',
     i18n: '切换语言',
     documentation: '文档',
     guide: '引导页',
@@ -69,7 +72,7 @@ export default {
     exportZip: 'Export Zip',
     theme: '换肤',
     clipboardDemo: 'Clipboard',
-    externalLink: '外链',
+    
     profile: '个人中心'
   },
   button: {
@@ -77,6 +80,11 @@ export default {
     create: '创建',
     search: '搜索',
     send: '修改'
+  },
+  serverInfo:{
+    players:'在线玩家',
+    hostiles:'丧尸',
+    animals:'动物'
   },
   login: {
     server: '服务器地址',
@@ -97,7 +105,8 @@ export default {
     accessToken: 'accessToken',
     enableGzip: '启用Gzip',
     openInDefaultBrowser: '自动打开浏览器',
-    port: '端口'
+    webApiPort: '网页端口',
+    webSocketPort:'终端端口'
   },
   management: {
     CommonConfig: '公共配置',
@@ -121,7 +130,14 @@ export default {
     package: '查看背包',
     equipment: '装备',
     belt: '腰带',
-    bag: '背包'
+    bag: '背包',
+    index:'序号',
+    name:'昵称',
+    totalPlayTime:'总游戏时间',
+    lastOnline:'最后登录时间',
+    day:' 天 ',
+    hour:' 小时 ',
+    minit:' 分钟'
   },
   publicCity: {
     availableCityTips: '主城列表',
@@ -181,6 +197,11 @@ export default {
     playerPoints: '玩家积分',
     steamId: 'steamId',
     count: '积分'
+  },
+  telnet:{
+    placeholder:'请输入指令',
+    send:'发送',
+    server:'服务器'
   },
   navbar: {
     dashboard: '首页',
