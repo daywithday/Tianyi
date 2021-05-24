@@ -1,12 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import {getServer,getPort} from '@/utils/auth'
 Vue.use(Router)
 
 /* Layout */
 import Layout from '@/layout'
-let server = getServer()
-let port = getPort()
 /**
  * Note: sub-menu only appear when route children.length >= 1
  * Detail see: https://panjiachen.github.io/vue-element-admin-site/guide/essentials/router-and-nav.html
@@ -244,17 +241,28 @@ export const asyncRoutes = [
       }
     ]
   },
-
   {
-    path: 'external-link',
+    path: '/externalLink',
     component: Layout,
     children: [
       {
-        path: ('http://'+server+':'+port+'/swagger-ui/index.html'),
-        meta: { title: 'externalLink', icon: 'link' }
+        path: 'externalLink',
+        component: () => import('@/views/external-link/index'),
+        name: 'Log',
+        meta: { title: 'externalLink', icon: 'link', noCache: true }
       }
     ]
   },
+  // {
+  //   path: 'external-link',
+  //   component: Layout,
+  //   children: [
+  //     {
+  //       path: ('/swagger-ui/index.html'),
+  //       meta: { title: 'externalLink', icon: 'link' }
+  //     }
+  //   ]
+  // },
 
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }
