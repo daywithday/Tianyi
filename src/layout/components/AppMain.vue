@@ -29,9 +29,12 @@ export default {
 .app-main {
   /* 50= navbar  50  */
   min-height: calc(100vh - 80px);
+  max-height: calc(100vh - 80px);
   width: 100%;
   position: relative;
-  overflow: hidden;
+  overflow:hidden;
+  box-sizing: border-box;
+  padding-bottom: 30px;
 }
 
 .fixed-header+.app-main {

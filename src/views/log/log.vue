@@ -27,6 +27,11 @@ export default {
     return {
       list: [
         {
+          time: "2021-5-28",
+          index: "第0.13版",
+          content: ["新增GPS地图插件"]
+        },
+        {
           time: "2021-5-24",
           index: "第0.12版",
           content: ["新增telnet终端", "背包翻译", "新增日志"]
@@ -64,5 +69,8 @@ export default {
 <style lang="scss" scoped>
 .block {
   padding: 20px;
+  box-sizing: border-box;
+  max-height: calc(100vh - 80px);
+  overflow-y:auto; 
 }
 </style>

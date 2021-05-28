@@ -3,7 +3,7 @@
     <aside>
       {{ $t('route.onlineMap') }}
     </aside>
-    <iframe style="width:100%;height: 100vh;" src="/static/onlineMap/index.html" frameborder="0" />
+    <iframe style="width:100%;height: calc(100vh - 200px);" src="/static/onlineMap/index.html" frameborder="0" />
   </div>
 </template>
 <script>
