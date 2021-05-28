@@ -4,9 +4,20 @@
 @import './element-ui.scss';
 @import './sidebar.scss';
 @import './btn.scss';
-
+body:before { 
+  content: ""; 
+  position: absolute;
+   top: 0;
+    width: 800vw;
+     height: 35px;
+      background-color: rgba(255, 255, 255, 0.4);
+       transform: rotate(45deg);
+        animation: scan-light 2s ease-in infinite;
+       } 
+@keyframes scan-light { from { right: -400vw;opacity:0.2; } to { right: 160vw;opacity:2; } }
 body {
   height: 100%;
+  overflow: hidden;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;

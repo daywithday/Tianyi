@@ -9,9 +9,10 @@ export default {
     publicCity: 'Public City',
     privateHome: 'Private Home',
     pointsSystem: 'Points System',
-    externalLink:'Interface Document',
-    telnet:'telnet',
-    log:'log',
+    externalLink: 'Interface Document',
+    telnet: 'telnet',
+    onlineMap: 'onlineMap',
+    log: 'log',
     i18n: 'Switch language',
     documentation: 'Documentation',
     guide: 'Guide',
@@ -72,7 +73,7 @@ export default {
     exportZip: 'Export Zip',
     theme: 'Theme',
     clipboardDemo: 'Clipboard',
-    
+
     profile: 'Profile'
   },
   button: {
@@ -81,10 +82,10 @@ export default {
     search: 'Search',
     send: 'modify'
   },
-  serverInfo:{
-    players:'Online players',
-    hostiles:'zombies',
-    animals:'animal'
+  serverInfo: {
+    players: 'Online players',
+    hostiles: 'zombies',
+    animals: 'animal'
   },
   login: {
     server: 'server address',
@@ -105,8 +106,8 @@ export default {
     accessToken: 'accessToken',
     enableGzip: 'enableGzip',
     openInDefaultBrowser: 'openInDefaultBrowser',
-    webApiPort:'Web Port',
-     webSocketPort:'terminal port'
+    webApiPort: 'Web Port',
+    webSocketPort: 'terminal port'
   },
   management: {
     CommonConfig: 'Common Configuration',
@@ -131,13 +132,13 @@ export default {
     equipment: 'Equipment',
     belt: 'Belt',
     bag: 'backpack',
-    index:'Serial Number',
-     name:'nickname',
-     totalPlayTime:'Total play time',
-     lastOnline:'Last login time',
-     day:' day ',
-     hour:' hour ',
-     minit:' minutes'
+    index: 'Serial Number',
+    name: 'nickname',
+    totalPlayTime: 'Total play time',
+    lastOnline: 'Last login time',
+    day: ' day ',
+    hour: ' hour ',
+    minit: ' minutes'
   },
   publicCity: {
     availableCityTips: 'Main City List',
@@ -182,10 +183,10 @@ export default {
   about: {
     content: 'Tianyi Seven Days Kill Management System'
   },
-  telnet:{
-    placeholder:'Please enter the instruction',
-    send:'send',
-    server:'server'
+  telnet: {
+    placeholder: 'Please enter the instruction',
+    send: 'send',
+    server: 'server'
   },
   pointsSystem: {
     functionName: 'functionName',

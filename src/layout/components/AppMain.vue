@@ -5,6 +5,9 @@
         <router-view :key="key" />
       </keep-alive>
     </transition>
+    <div class="signName">
+      Powered by IceCoffee and daywithday <a target="_blank" href="https://github.com/daywithday/Tianyi">GItHub Tianyi</a> <a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=gbKStQR2SoBuqSHrOWgYwJUaaq3hRRab&jump_from=webapi"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="天依七日杀服主群" title="天依七日杀服主群"></a>
+    </div>
   </section>
 </template>
 
@@ -25,7 +28,7 @@ export default {
 <style lang="scss" scoped>
 .app-main {
   /* 50= navbar  50  */
-  min-height: calc(100vh - 50px);
+  min-height: calc(100vh - 80px);
   width: 100%;
   position: relative;
   overflow: hidden;
@@ -44,6 +47,11 @@ export default {
   .fixed-header+.app-main {
     padding-top: 84px;
   }
+}
+.signName{
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 </style>
 

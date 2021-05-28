@@ -205,6 +205,18 @@ export const asyncRoutes = [
     ]
   },
   {
+    path: '/onlineMap',
+    component: Layout,
+    children: [
+      {
+        path: 'onlineMap',
+        component: () => import('@/views/onlineMap/index'),
+        name: 'OnlineMap',
+        meta: { title: 'onlineMap', icon: 'international', noCache: true }
+      }
+    ]
+  },
+  {
     path: '/log',
     component: Layout,
     children: [
@@ -237,13 +249,13 @@ export const asyncRoutes = [
         path: 'index',
         component: () => import('@/views/i18n-demo/index'),
         name: 'I18n',
-        meta: { title: 'i18n', icon: 'international' }
+        meta: { title: 'i18n', icon: 'size' }
       }
     ]
   },
   {
     path: '/externalLink',
-    component: Layout, 
+    component: Layout,
     children: [
       {
         path: 'externalLink',

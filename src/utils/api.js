@@ -43,3 +43,5 @@ export const RetrieveServerStats = data => get('/api/RetrieveServerStats', data)
 export const RetrieveChatLogPaged = data => post('/api/RetrieveChatLogPaged', data) // 获取聊天记录
 
 export const RetrieveLocalization = data => get('/api/RetrieveLocalization', data) // 获取背包翻译
+
+export const map = data => get(`/map/${data.x}/${data.y}/${data.z}`, {}) // 获取背包翻译
