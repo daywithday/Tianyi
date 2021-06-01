@@ -19,7 +19,6 @@
 
 <script>
 import GithubCorner from '@/components/GithubCorner'
-import PanelGroup from './components/PanelGroup'
 import BoxCard from './components/BoxCard'
 import logo from '../../../../static/images/logo.png'
 import { RetrieveServerStats, RetrieveServerInfo } from '@/utils/api'
@@ -28,7 +27,6 @@ export default {
   name: 'DashboardAdmin',
   components: {
     GithubCorner,
-    PanelGroup,
     BoxCard
   },
   data() {
@@ -41,12 +39,12 @@ export default {
   },
   mounted() {
     const that = this
-    let version = getVersion()
-    if (version && version >= 12) {
-      
+    const version = getVersion()
+    if (version && version >= 14) {
+
     } else {
-      setVersion(12)
-      this.$router.push({path:'./log/log'})
+      setVersion(14)
+      this.$router.push({ path: './log/log' })
     }
     RetrieveServerStats().then(res => {
       that.serverState = res.data
@@ -54,7 +52,7 @@ export default {
     RetrieveServerInfo().then(res => {
       const newObj = {}
       const serverInfoList = []
-      let bbj = {}
+      const bbj = {}
       for (const key in res.data) {
         const obj = {}
         obj.key = key

@@ -32,8 +32,8 @@ export const UpdatePointsSystemConfig = data => post('/api/UpdatePointsSystemCon
 export const RetrievePlayerPoints = data => get('/api/RetrievePlayerPoints', data)// 获取玩家积分信息
 export const UpdatePlayerPoints = data => post('/api/UpdatePlayerPoints', data)// 更新玩家积分
 
-export const RetrieveKnownPlayer = data => get('/api/RetrieveKnownPlayer', data)// 获取历史玩家
-export const RetrieveOnlinePlayer = data => get('/api/RetrieveOnlinePlayer', data)// 获取在线玩家
+export const RetrieveKnownPlayer = data => get('/api/RetrieveKnownPlayers', data)// 获取历史玩家
+export const RetrieveOnlinePlayer = data => get('/api/RetrieveOnlinePlayers', data)// 获取在线玩家
 export const RetrieveInventory = data => get('/api/RetrieveInventory', data)// 获取玩家背包
 
 export const RetrieveServerInfo = data => get('/api/RetrieveServerInfo', data) // 获取服务器信息
