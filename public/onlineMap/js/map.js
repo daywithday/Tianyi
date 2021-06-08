@@ -6,12 +6,17 @@ var mapinfo = {
 }
 var cookies = document.cookie.split(";")
 var token = ''
+var language = ''
 if (cookies && cookies.length > 0) {
 	var len = cookies.length
 	for (var index = 0; index < len; index++) {
-		if (cookies[index].split('=')[0] == 'Admin-Token') {
-			token = cookies[index].split('=')[1]
+		if (cookies[index].trim().split('=')[0] == 'Admin-Token') {
+			token = cookies[index].split('=')[1].trim();
+		}else if (cookies[index].trim().split('=')[0] == 'language') {
+			language = cookies[index].split('=')[1].trim();
+			language = language == "zh" ? "schinese" : "english";
 		}
+		 
 	}
 }
 function setHeader(xhr) {
@@ -221,7 +226,7 @@ function InitMap() {
 				marker = playersMappingList[val.steamId].currentPosMarker;
 			} else {
 				marker = L.marker([val.position.x, val.position.z], { icon: playerIcon }).bindPopup(
-					"Player: " + $("<div>").text(val.name).html() +
+					"Player: <span id='playerName'>" + $("<div>").text(val.name).html() + "</span>" +
 					(HasPermission("webapi.getplayerinventory") ?
 						"<br/><a class='inventoryButton' data-steamId='" + val.steamId + "'>Show inventory</a>"
 						: "")

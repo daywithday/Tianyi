@@ -245,8 +245,8 @@ a:visited {
 }
 
 .playerInventoryDialog td.invField {
-	width: 58px;
-	height: 40px;
+	width: 60px;
+	height: 60px;
 	padding: 1px 4px;
 	margin: 0px;
 	border: 1px solid gray;

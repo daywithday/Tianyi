@@ -5,6 +5,5 @@ var tabs = $("#adminmenu").tabbedContent ({
 	menubardiv: $(".adminnavbar"),
 	hideOnStart: false,
 });
-SetupInventoryDialog ();
 InitPermissions ();
 

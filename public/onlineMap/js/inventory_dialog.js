@@ -3,32 +3,34 @@ var ITEMICONBASEURL = "/itemicons/";
 var BAG_COLS = 9;
 var BAG_ROWS = 5;
 var BELT_COLS = 8;
-var INV_ITEM_WIDTH = 58;
-var INV_ITEM_HEIGHT = 40;
+var INV_ITEM_WIDTH = 60;
+var INV_ITEM_HEIGHT = 60;
 
 function ShowInventoryDialog(steamId) {
 	var SetCellItem = function (containerTypeName, cellIdent, itemdata) {
-		var cell = $("#" + containerTypeName + "Field" + cellIdent);
-		var text = $("#" + containerTypeName + "FieldText" + cellIdent);
-		var qual = $("#" + containerTypeName + "FieldQuality" + cellIdent);
-
-		cell.attr("style", "background-image: none;");
-		cell.removeAttr("title");
-		text.removeClass("visible");
-		qual.removeClass("visible");
-
-		if (itemdata !== null && itemdata !== undefined) {
-			cell.attr("style", "background-image: url(" + ITEMICONBASEURL + itemdata.icon + "__" + itemdata.iconcolor + ".png);");
-			if (itemdata.quality >= 0) {
-				cell.attr("title", itemdata.name + " (quality: " + itemdata.quality + ")");
-				qual.attr("style", "background-color: #" + itemdata.qualitycolor);
-				qual.addClass("visible");
-			} else {
-				cell.attr("title", itemdata.name);
-				text.text(itemdata.count);
-				text.addClass("visible");
+		getLocalization(containerTypeName, cellIdent, itemdata,function(containerTypeName, cellIdent, itemdata){
+			var cell = $("#" + containerTypeName + "Field" + cellIdent);
+			var text = $("#" + containerTypeName + "FieldText" + cellIdent);
+			var qual = $("#" + containerTypeName + "FieldQuality" + cellIdent);
+	
+			cell.attr("style", "background-image: none;");
+			cell.removeAttr("title");
+			text.removeClass("visible");
+			qual.removeClass("visible");
+	
+			if (itemdata !== null && itemdata !== undefined) {
+				cell.attr("style", "background-image: url(" + ITEMICONBASEURL + itemdata.icon + "__" + itemdata.iconcolor + ".png);");
+				if (itemdata.quality >= 0) {
+					cell.attr("title", itemdata.name + " (quality: " + itemdata.quality + ")");
+					qual.attr("style", "background-color: #" + itemdata.qualitycolor);
+					qual.addClass("visible");
+				} else {
+					cell.attr("title", itemdata.name);
+					text.text(itemdata.count);
+					text.addClass("visible");
+				}
 			}
-		}
+		});
 	}
 
 	var SetEquipmentItem = function (data, name, cellIdent) {
@@ -64,8 +66,17 @@ function ShowInventoryDialog(steamId) {
 		type: 'GET',
 		datatype: 'json',
 		success: function (data) {
+			
+			var bagNum = data.data.bag.length;
+			BAG_COLS = parseInt(Math.sqrt(bagNum/0.4));
+			BAG_ROWS = Math.ceil(bagNum/BAG_COLS);
+			BELT_COLS = data.data.belt.length;
 
-			$("#invPlayerName").text(data.data.playername);
+			if(!isInventoryDialogSetup){
+				SetupInventoryDialog();
+			}
+			
+			$("#invPlayerName").text($("#playerName").text());
 			$("#invSteamId").text(steamId);
 
 			for (var y = 0; y < data.data.bag.length; y++) {
@@ -100,7 +111,7 @@ function ShowInventoryDialog(steamId) {
 			$("#playerInventoryDialog").css("z-index", "1010").dialog({
 				dialogClass: "playerInventoryDialog",
 				modal: true,
-				width: BAG_COLS * (INV_ITEM_WIDTH + 14) + 3 * (INV_ITEM_WIDTH + 14) + 20,
+				width: BAG_COLS * (INV_ITEM_WIDTH + 5 ) + 3 * (INV_ITEM_WIDTH + 5) + 3,
 				buttons: {
 					Ok: function () {
 						$(this).dialog("close");
@@ -113,6 +124,27 @@ function ShowInventoryDialog(steamId) {
 	});
 }
 
+function getLocalization(containerTypeName, cellIdent, itemdata, callBack){
+	if(itemdata){
+		var itemName = itemdata.itemName;
+		var url = `/api/RetrieveLocalization?language=${language}&itemName=${itemName}`;
+		$.ajax({
+			url: url,
+			type: 'GET',
+			datatype: 'json',
+			success: function (data) {
+				itemdata.name = data.data;
+				callBack(containerTypeName, cellIdent, itemdata);
+			},
+			error: function () { console.log("Error fetching Localization"); },
+			beforeSend: setHeader
+		});
+	}else{
+		callBack(containerTypeName, cellIdent, itemdata);
+	}
+}
+
+var isInventoryDialogSetup = false;
 function SetupInventoryDialog() {
 	var CreateInvCell = function (containerTypeName, cellIdent) {
 		return "<td class=\"invField\" id=\"" + containerTypeName + "Field" + cellIdent + "\">" +
