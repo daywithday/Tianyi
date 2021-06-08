@@ -11,8 +11,20 @@
             <el-form-item :label="$t('notice.alternateInterval')">
                 <el-input v-model="form.alternateInterval"></el-input>
             </el-form-item>
-            <el-form-item :label="$t('notice.alternateNotice')">
+            <el-form-item :label="$t('notice.alternateNotice')+' 1'">
                 <el-input type="textarea" v-model="form.alternateNotice"></el-input>
+            </el-form-item>
+            <el-form-item :label="$t('notice.alternateNotice')+' 2'">
+                <el-input type="textarea" v-model="form.alternateNotice1"></el-input>
+            </el-form-item>
+            <el-form-item :label="$t('notice.alternateNotice')+' 3'">
+                <el-input type="textarea" v-model="form.alternateNotice2"></el-input>
+            </el-form-item>
+            <el-form-item :label="$t('notice.alternateNotice')+' 4'">
+                <el-input type="textarea" v-model="form.alternateNotice3"></el-input>
+            </el-form-item>
+            <el-form-item :label="$t('notice.alternateNotice')+' 5'">
+                <el-input type="textarea" v-model="form.alternateNotice4"></el-input>
             </el-form-item>
             <el-form-item :label="$t('notice.functionName')">
                 <el-input disabled v-model="form.functionName"></el-input>
