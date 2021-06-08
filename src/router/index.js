@@ -193,6 +193,18 @@ export const asyncRoutes = [
     ]
   },
   {
+    path: '/shop',
+    component: Layout,
+    children: [
+      {
+        path: 'shop',
+        component: () => import('@/views/shop/index'),
+        name: 'Shop',
+        meta: { title: 'shop', icon: 'shopping', noCache: true }
+      }
+    ]
+  },
+  {
     path: '/telnet',
     component: Layout,
     children: [

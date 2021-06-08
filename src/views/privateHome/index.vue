@@ -20,7 +20,7 @@
         <el-input v-model="form.homeNotFoundTips" />
       </el-form-item>
       <el-form-item :label="$t('privateHome.homePositionTips')">
-        <el-input v-model="form.homePositionTips" />
+        <el-input v-model="form.queryListTips" />
       </el-form-item>
       <el-form-item :label="$t('privateHome.maxCanSetCount')">
         <el-input v-model="form.maxCanSetCount" />
@@ -35,7 +35,7 @@
         <el-input v-model="form.overwriteOldSucceedTips" />
       </el-form-item>
       <el-form-item :label="$t('privateHome.ownedHomeTips')">
-        <el-input v-model="form.ownedHomeTips" />
+        <el-input v-model="form.queryListPreTips" />
       </el-form-item>
       <el-form-item :label="$t('privateHome.pointsRequiredForSet')">
         <el-input v-model="form.pointsRequiredForSet" />
@@ -92,13 +92,13 @@ export default {
         deleteSucceedTips: '',
         functionName: '',
         homeNotFoundTips: '',
-        homePositionTips: '',
+        queryListTips: '',
         isEnabled: true,
         maxCanSetCount: '',
         noneHaveHomeTips: '',
         overLimitTips: '',
         overwriteOldSucceedTips: '',
-        ownedHomeTips: '',
+        queryListPreTips: '',
         pointsRequiredForSet: '',
         pointsRequiredForTele: '',
         queryListCmd: '',

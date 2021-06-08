@@ -44,4 +44,13 @@ export const RetrieveChatLogPaged = data => post('/api/RetrieveChatLogPaged', da
 
 export const RetrieveLocalization = data => get('/api/RetrieveLocalization', data) // 获取背包翻译
 
-export const map = data => get(`/map/${data.x}/${data.y}/${data.z}`, {}) // 获取背包翻译
+export const map = data => get(`/map/${data.x}/${data.y}/${data.z}`, {}) // 获取地图
+
+export const RetrieveGameStoreConfig = data => get('/api/RetrieveGameStoreConfig', data) // 获取商城配置
+export const UpdateGameStoreConfig = data => post('/api/UpdateGameStoreConfig', data) // 更新商城配置
+
+export const RetrieveGoods = data => get('/api/RetrieveGoods', data) // 获取商城商品列表
+export const CreateGoods = data => post('/api/CreateGoods', data) // 创建商品
+export const DeleteGoods = data => post('/api/DeleteGoods', data) // 删除商品
+export const UpdateGoods = data => post('/api/UpdateGoods', data) // 更新商品
+export const RetrieveContentTypes = data => get('/api/RetrieveContentTypes', data) // 获取商品类型列表

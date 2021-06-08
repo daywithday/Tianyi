@@ -9,6 +9,7 @@ export default {
     publicCity: '公共回城',
     privateHome: '私人回家',
     pointsSystem: '积分系统',
+    shop:'商城配置',
     externalLink: '接口文档',
     telnet: '终端',
     log: '更新日志',
@@ -80,7 +81,8 @@ export default {
     save: '保存',
     create: '创建',
     search: '搜索',
-    send: '修改'
+    send: '修改',
+    delete:'删除'
   },
   serverInfo: {
     players: '在线玩家',
@@ -198,6 +200,24 @@ export default {
     playerPoints: '玩家积分',
     steamId: 'steamId',
     count: '积分'
+  },
+  shop:{
+    buySuccessfullyTips:'购买成功提示',
+    goodsNoFoundTips:'商品不存在提示',
+    pointsNotEnoughTips:'积分不足提示',
+    queryListCmd:"查询商城指令",
+    queryListPreTips:'商品列表提示',
+    queryListTips:'商品展示字段排序',
+    isEnabled:'是否启用',
+    list:'商城列表',
+    buyCmd:'购买命令',
+    content:'商品内容',
+    count:'商品数量',
+    name:'商品名称',
+    price:'商品价格',
+    quality:'商品质量',
+    position:'商品类型',
+    contentType:'物品/方块/实体/指令'
   },
   telnet: {
     placeholder: '请输入指令',

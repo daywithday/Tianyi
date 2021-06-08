@@ -11,7 +11,7 @@
           label-width="auto"
         >
           <el-form-item :label="$t('publicCity.availableCityTips')">
-            <el-input v-model="form.availableCityTips" />
+            <el-input v-model="form.queryListPreTips" />
           </el-form-item>
           <el-form-item :label="$t('publicCity.coolingTips')">
             <el-input v-model="form.coolingTips" />
@@ -71,7 +71,7 @@ export default {
   data() {
     return {
       form: {
-        availableCityTips: '',
+        queryListPreTips: '',
         coolingTips: '',
         functionName: '',
         isEnabled: true,

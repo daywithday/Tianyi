@@ -27,6 +27,11 @@ export default {
     return {
       list: [
         {
+          time: '2021-6-8',
+          index: '第0.15版',
+          content: ['新增在线商城']
+        },
+        {
           time: '2021-6-1',
           index: '第0.14版',
           content: ['完善GPS地图插件，已与原本一致。']
