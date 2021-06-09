@@ -105,22 +105,48 @@ function ShowInventoryDialog(steamId) {
 			let count = 0
 			for (var x = 0; x < data.data.equipment.length; x++) {
 				if (data.data.equipment[x]) {
-					SetCellItem("equipment", count, data.data.equipment[x]);
+					let str = ''
+					switch (count) {
+						case 0:
+							str = '0_0'
+							break;
+						case 1:
+							str = '0_1'
+							break;
+						case 2:
+							str = '0_2'
+							break;
+						case 3:
+							str = '1_0'
+							break;
+						case 4:
+							str = '1_1'
+							break;
+						case 5:
+							str = '1_2'
+							break;
+						case 6:
+							str = '2_0'
+							break;
+						case 7:
+							str = '2_1'
+							break;
+						case 8:
+							str = '2_2'
+							break;
+						case 9:
+							str = '0_4'
+							break;
+						case 10:
+							str = '2_4'
+							break;
+						default:
+							break;
+					}
+					SetCellItem("equipment", str, data.data.equipment[x]);
 					count++
 				}
 			}
-
-			SetEquipmentItem(data.data, "head", "0_0");
-			SetEquipmentItem(data.data, "eyes", "0_1");
-			SetEquipmentItem(data.data, "face", "0_2");
-			SetEquipmentItem(data.data, "armor", "1_0");
-			SetEquipmentItem(data.data, "jacket", "1_1");
-			SetEquipmentItem(data.data, "shirt", "1_2");
-			SetEquipmentItem(data.data, "legarmor", "2_0");
-			SetEquipmentItem(data.data, "pants", "2_1");
-			SetEquipmentItem(data.data, "boots", "2_2");
-			SetEquipmentItem(data.data, "gloves", "0_4");
-			SetEquipmentItem(data.data, "backpack", "2_4");
 
 			$("#playerInventoryDialog").css("z-index", "1010").dialog({
 				dialogClass: "playerInventoryDialog",
