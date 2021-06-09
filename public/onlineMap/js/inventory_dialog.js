@@ -41,7 +41,7 @@ function ShowInventoryDialog(steamId) {
 					itemdata.qualitycolor = '#F39C12';
 					break;
 				case 6:
-					itemdata.qualitycolor = '#FFFFFF';
+					itemdata.qualitycolor = '#F7DC6F';
 					break;
 				default:
 					itemdata.qualitycolor = 'transparent';
