@@ -65,7 +65,6 @@ import {
   RetrieveTeleportCityConfig,
   UpdateTeleportCityConfig
 } from '@/utils/api'
-import { setToken, setPort } from '@/utils/auth'
 export default {
   components: { cityList },
   data() {

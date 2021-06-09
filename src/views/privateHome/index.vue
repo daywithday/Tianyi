@@ -147,7 +147,7 @@ export default {
   padding: 20px;
   box-sizing: border-box;
   max-height: calc(100vh - 80px);
-  overflow-y:auto; 
+  overflow-y:auto;
 }
 </style>
 

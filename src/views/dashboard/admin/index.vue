@@ -6,17 +6,25 @@
       fit="contain"
     />
     <el-row :gutter="8">
-      <el-col :xs="{span: 24}" :sm="{span: 24}" :md="{span: 24}" :lg="{span: 24}" :xl="{span: 24}" style="margin-bottom:30px;">
-        <box-card v-if="serverInfo && serverState" :server-state="serverState" :server-info="serverInfo" />
+      <el-col
+        :xs="{span: 24}"
+        :sm="{span: 24}"
+        :md="{span: 24}"
+        :lg="{span: 24}"
+        :xl="{span: 24}"
+        style="margin-bottom:30px;"
+      >
+        <box-card
+          v-if="serverInfo && serverState"
+          :server-state="serverState"
+          :server-info="serverInfo"
+        />
       </el-col>
     </el-row>
-
     <github-corner class="github-corner" />
-
     <!-- <panel-group v-if="serverInfoList" :server-info-list="serverInfoList" /> -->
   </div>
 </template>
-
 <script>
 import GithubCorner from '@/components/GithubCorner'
 import BoxCard from './components/BoxCard'
@@ -40,9 +48,7 @@ export default {
   mounted() {
     const that = this
     const version = getVersion()
-    if (version && version >= 15) {
-
-    } else {
+    if (!version || version < 15) {
       setVersion(15)
       this.$router.push({ path: './log/log' })
     }
@@ -66,9 +72,7 @@ export default {
       that.serverInfo = newObj
     })
   },
-  methods: {
-
-  }
+  methods: {}
 }
 </script>
 
@@ -92,7 +96,7 @@ export default {
   }
 }
 
-@media (max-width:1024px) {
+@media (max-width: 1024px) {
   .chart-wrapper {
     padding: 8px;
   }

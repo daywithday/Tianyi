@@ -5,6 +5,7 @@ const ServerKey = 'Server'
 const PortKey = 'Port'
 const Translate = 'Translate'
 const Version = 'Version'
+const lang = 'lang'
 export function getToken() {
   return Cookies.get(TokenKey)
 }
@@ -63,4 +64,12 @@ export function setVersion(content) {
 
 export function removeVersion() {
   return Cookies.remove(Version)
+}
+
+export function getlang() {
+  return Cookies.get(lang)
+}
+
+export function setlang(content) {
+  return Cookies.set(lang, content, { expires: 36500 })
 }

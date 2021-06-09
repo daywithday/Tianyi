@@ -47,56 +47,55 @@
   </div>
 </template>
 <script>
-import shopList from "./components/shopList";
-import { mapGetters } from "vuex";
-import { RetrieveGameStoreConfig, UpdateGameStoreConfig } from "@/utils/api";
-import { setToken, setPort } from "@/utils/auth";
+import shopList from './components/shopList'
+import { mapGetters } from 'vuex'
+import { RetrieveGameStoreConfig, UpdateGameStoreConfig } from '@/utils/api'
 export default {
   components: { shopList },
   data() {
     return {
       form: {
-        buySuccessfullyTips: "",
-        functionName: "",
-        goodsNoFoundTips: "",
-        isEnabled: "",
-        pointsNotEnoughTips: "",
-        queryListCmd: "",
-        queryListPreTips: "",
-        queryListTips: ""
+        buySuccessfullyTips: '',
+        functionName: '',
+        goodsNoFoundTips: '',
+        isEnabled: '',
+        pointsNotEnoughTips: '',
+        queryListCmd: '',
+        queryListPreTips: '',
+        queryListTips: ''
       }
-    };
+    }
   },
   computed: {
-    ...mapGetters(["device"])
+    ...mapGetters(['device'])
   },
   mounted() {
-    this.getDate();
+    this.getDate()
   },
   methods: {
     getDate() {
-      const that = this;
+      const that = this
       RetrieveGameStoreConfig().then(res => {
-        that.form = res.data;
-      });
+        that.form = res.data
+      })
     },
     onSubmit() {
-      const that = this;
-      this.$confirm("确定保存？")
+      const that = this
+      this.$confirm('确定保存？')
         .then(_ => {
           UpdateGameStoreConfig(that.form).then(res => {
             that.$notify({
-              title: "Success",
+              title: 'Success',
               dangerouslyUseHTMLString: true,
-              type: "success"
-            });
-            that.getDate();
-          });
+              type: 'success'
+            })
+            that.getDate()
+          })
         })
-        .catch(_ => {});
+        .catch(_ => {})
     }
   }
-};
+}
 </script>
 <style lang="scss" scoped>
 .chat-history-container {

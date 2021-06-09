@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vue-cli-service serve",
     "lint": "eslint --ext .js,.vue src",
-    "build:prod": "vue-cli-service build",
+    "build": "vue-cli-service build",
     "build:stage": "vue-cli-service build --mode staging",
     "preview": "node build/index.js --preview",
     "new": "plop",
@@ -55,6 +55,7 @@
     "babel-eslint": "10.1.0",
     "babel-jest": "23.6.0",
     "babel-plugin-dynamic-import-node": "2.3.3",
+    "babel-plugin-import": "^1.13.3",
     "chalk": "2.4.2",
     "chokidar": "2.1.5",
     "connect": "3.6.6",

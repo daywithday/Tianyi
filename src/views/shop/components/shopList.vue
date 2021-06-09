@@ -52,7 +52,7 @@
         label="contentType"
       >
         <template slot-scope="scope">
-          {{scope.row.contentType}}
+          {{ scope.row.contentType }}
         </template>
       </el-table-column>
       <el-table-column
@@ -105,8 +105,7 @@
             :key="item.name"
             :label="item.description"
             :value="item.name"
-          >
-          </el-option>
+          />
         </el-select>
       </el-form-item>
       <el-form-item>
@@ -127,117 +126,128 @@ import {
   RetrieveGoods,
   UpdateGoods,
   CreateGoods,
-  DeleteGoods,
+  // DeleteGoods,
   RetrieveLocalization,
   RetrieveContentTypes
-} from "@/utils/api";
+} from '@/utils/api'
 export default {
   data() {
     return {
       list: [
+        {
+          id: '6270db57-67c9-483f-928d-1355c5c794b1',
+          createdDate: '2021-06-08 11:55:58.000',
+          name: '¾Õ»¨',
+          buyCmd: '/shop1',
+          content: '¾Õ»¨',
+          count: 1,
+          quality: 1,
+          price: 1,
+          contentType: 'Item'
+        }
       ],
       currentRow: {
-        buyCmd: "",
-        content: "",
-        contentType: "",
-        count: "",
-        name: "",
-        price: "",
-        quality: ""
+        buyCmd: '',
+        content: '',
+        contentType: '',
+        count: '',
+        name: '',
+        price: '',
+        quality: ''
       },
       selectList: [],
-      value: "",
+      value: '',
       rules: {
         buyCmd: [
-          { required: true, message: "pleace enter buyCmd", trigger: "blur" }
+          { required: true, message: 'pleace enter buyCmd', trigger: 'blur' }
         ],
         command: [
-          { required: true, message: "pleace enter command", trigger: "blur" }
+          { required: true, message: 'pleace enter command', trigger: 'blur' }
         ],
         pointsRequired: [
           {
             required: true,
-            message: "pleace enter pointsRequired",
-            trigger: "blur"
+            message: 'pleace enter pointsRequired',
+            trigger: 'blur'
           }
         ],
         position: [
           {
             required: true,
-            message: "pleace enter pointsRequired",
-            trigger: "blur"
+            message: 'pleace enter pointsRequired',
+            trigger: 'blur'
           }
         ]
       }
-    };
+    }
   },
   computed: {
     lang: {
       get() {
-        return this.$store.state.app.language;
+        return this.$store.state.app.language
       },
       set(lang) {
-        this.$i18n.locale = lang;
-        this.$store.dispatch("app/setLanguage", lang);
+        this.$i18n.locale = lang
+        this.$store.dispatch('app/setLanguage', lang)
       }
     }
   },
   created() {
-    this.getList();
-    this.getSelectList();
+    this.getList()
+    this.getSelectList()
   },
   methods: {
     getcontentType(data) {
-      let that = this
+      const that = this
       RetrieveLocalization({
-        language: that.lang == "zh" ? "schinese" : "english",
-          itemName: data
-      }).then(res =>{
+        language: that.lang === 'zh' ? 'schinese' : 'english',
+        itemName: data
+      }).then(res => {
         console.log(res)
       })
     },
     delete(data) {
-      console.log(data);
+      console.log(data)
     },
     getList() {
-      const that = this;
+      const that = this
       RetrieveGoods().then(res => {
-        that.list = res.data;
-      });
+        that.list = res.data
+      })
     },
     getSelectList() {
-      const that = this;
+      const that = this
       RetrieveContentTypes().then(res => {
-        that.selectList = res.data;
-      });
+        that.selectList = res.data
+      })
     },
     handleCurrentChange(val) {
-      this.currentRow = val;
+      this.currentRow = val
     },
     onCreate() {
-      const that = this;
+      const that = this
       CreateGoods(that.currentRow).then(res => {
         that.$notify({
-          title: "Success",
+          title: 'Success',
           dangerouslyUseHTMLString: true,
-          type: "success"
-        });
-        that.getList();
-      });
+          type: 'success'
+        })
+        that.getList()
+      })
     },
     onUpdate() {
-      const that = this;
+      const that = this
       UpdateGoods(that.currentRow).then(res => {
         that.$notify({
-          title: "Success",
+          title: 'Success',
           dangerouslyUseHTMLString: true,
-          type: "success"
-        });
-        that.getList();
-      });
+          type: 'success'
+        })
+        that.getList()
+      })
     }
   }
-};
+}
 </script>
 <style lang="scss" scoped>
 </style>
