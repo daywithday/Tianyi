@@ -21,7 +21,34 @@ function ShowInventoryDialog(steamId) {
 			cell.attr("style", "background-image: url(" + ITEMICONBASEURL + itemdata.icon + "__" + itemdata.iconcolor + ".png);");
 			if (itemdata.quality >= 0) {
 				cell.attr("title", itemdata.itemName + " (quality: " + itemdata.quality + ")");
-				qual.attr("style", "background-color: #" + itemdata.qualitycolor);
+				switch (itemdata.quality) {
+				case 0:
+					itemdata.qualitycolor = '#909090';
+					break;
+				case 1:
+					itemdata.qualitycolor = '#FFFFFF';
+					break;
+				case 2:
+					itemdata.qualitycolor = '#3DD20D';
+					break;
+				case 3:
+					itemdata.qualitycolor = '#2F78FF';
+					break;
+				case 4:
+					itemdata.qualitycolor = '#9132C8';
+					break;
+				case 5:
+					itemdata.qualitycolor = '#F39C12';
+					break;
+				case 6:
+					itemdata.qualitycolor = '#FFFFFF';
+					break;
+				default:
+					itemdata.qualitycolor = 'transparent';
+					break;
+				}
+				itemdata.qualitycolor
+				qual.attr("style", "background-color: " + itemdata.qualitycolor);
 				qual.addClass("visible");
 			} else {
 				cell.attr("title", itemdata.itemName);
@@ -30,9 +57,9 @@ function ShowInventoryDialog(steamId) {
 			}
 			getLocalization(itemdata.itemName, function(name){
 				if (itemdata.quality >= 0) {
-					cell.attr("title", itemdata.itemName + " (quality: " + itemdata.quality + ")");
+					cell.attr("title", name + " (quality: " + itemdata.quality + ")");
 				} else {
-					cell.attr("title", itemdata.itemName);
+					cell.attr("title", name);
 				}
 			});
 		}
