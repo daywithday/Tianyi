@@ -12,7 +12,7 @@ if (cookies && cookies.length > 0) {
 	for (var index = 0; index < len; index++) {
 		if (cookies[index].trim().split('=')[0] == 'Admin-Token') {
 			token = cookies[index].split('=')[1].trim();
-		}else if (cookies[index].trim().split('=')[0] == 'language') {
+		}else if (cookies[index].trim().split('=')[0] == 'lang') {
 			language = cookies[index].split('=')[1].trim();
 			language = language == "zh" ? "schinese" : "english";
 		}

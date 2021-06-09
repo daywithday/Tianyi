@@ -8,29 +8,61 @@ var INV_ITEM_HEIGHT = 60;
 
 function ShowInventoryDialog(steamId) {
 	var SetCellItem = function (containerTypeName, cellIdent, itemdata) {
-		getLocalization(containerTypeName, cellIdent, itemdata,function(containerTypeName, cellIdent, itemdata){
-			var cell = $("#" + containerTypeName + "Field" + cellIdent);
-			var text = $("#" + containerTypeName + "FieldText" + cellIdent);
-			var qual = $("#" + containerTypeName + "FieldQuality" + cellIdent);
-	
-			cell.attr("style", "background-image: none;");
-			cell.removeAttr("title");
-			text.removeClass("visible");
-			qual.removeClass("visible");
-	
-			if (itemdata !== null && itemdata !== undefined) {
-				cell.attr("style", "background-image: url(" + ITEMICONBASEURL + itemdata.icon + "__" + itemdata.iconcolor + ".png);");
-				if (itemdata.quality >= 0) {
-					cell.attr("title", itemdata.name + " (quality: " + itemdata.quality + ")");
-					qual.attr("style", "background-color: #" + itemdata.qualitycolor);
-					qual.addClass("visible");
-				} else {
-					cell.attr("title", itemdata.name);
-					text.text(itemdata.count);
-					text.addClass("visible");
+		var cell = $("#" + containerTypeName + "Field" + cellIdent);
+		var text = $("#" + containerTypeName + "FieldText" + cellIdent);
+		var qual = $("#" + containerTypeName + "FieldQuality" + cellIdent);
+
+		cell.attr("style", "background-image: none;");
+		cell.removeAttr("title");
+		text.removeClass("visible");
+		qual.removeClass("visible");
+
+		if (itemdata !== null && itemdata !== undefined) {
+			cell.attr("style", "background-image: url(" + ITEMICONBASEURL + itemdata.icon + "__" + itemdata.iconcolor + ".png);");
+			if (itemdata.quality >= 0) {
+				cell.attr("title", itemdata.itemName + " (quality: " + itemdata.quality + ")");
+				switch (itemdata.quality) {
+				case 0:
+					itemdata.qualitycolor = '#909090';
+					break;
+				case 1:
+					itemdata.qualitycolor = '#FFFFFF';
+					break;
+				case 2:
+					itemdata.qualitycolor = '#3DD20D';
+					break;
+				case 3:
+					itemdata.qualitycolor = '#2F78FF';
+					break;
+				case 4:
+					itemdata.qualitycolor = '#9132C8';
+					break;
+				case 5:
+					itemdata.qualitycolor = '#F39C12';
+					break;
+				case 6:
+					itemdata.qualitycolor = '#FFFFFF';
+					break;
+				default:
+					itemdata.qualitycolor = 'transparent';
+					break;
 				}
+				itemdata.qualitycolor
+				qual.attr("style", "background-color: " + itemdata.qualitycolor);
+				qual.addClass("visible");
+			} else {
+				cell.attr("title", itemdata.itemName);
+				text.text(itemdata.count);
+				text.addClass("visible");
 			}
-		});
+			getLocalization(itemdata.itemName, function(name){
+				if (itemdata.quality >= 0) {
+					cell.attr("title", name + " (quality: " + itemdata.quality + ")");
+				} else {
+					cell.attr("title", name);
+				}
+			});
+		}
 	}
 
 	var SetEquipmentItem = function (data, name, cellIdent) {
@@ -41,24 +73,6 @@ function ShowInventoryDialog(steamId) {
 		}
 	}
 
-	//	function linkId(steamId) {
-	//		var value = "https://steamId.io/lookup/"+steamId;
-	//	}
-
-
-	var cookies = document.cookie.split(";")
-	var token = ''
-	if (cookies && cookies.length > 0) {
-		var len = cookies.length
-		for (var index = 0; index < len; index++) {
-			if (cookies[index].split('=')[0] == 'Admin-Token') {
-				token = cookies[index].split('=')[1]
-			}
-		}
-	}
-	function setHeader(xhr) {
-		xhr.setRequestHeader('access-token', token);
-	}
 	var url = `/api/RetrieveInventory?steamId=${steamId}`
 
 	$.ajax({
@@ -124,28 +138,23 @@ function ShowInventoryDialog(steamId) {
 	});
 }
 
-function getLocalization(containerTypeName, cellIdent, itemdata, callBack){
-	if(itemdata){
-		var itemName = itemdata.itemName;
-		var url = `/api/RetrieveLocalization?language=${language}&itemName=${itemName}`;
-		$.ajax({
-			url: url,
-			type: 'GET',
-			datatype: 'json',
-			success: function (data) {
-				itemdata.name = data.data;
-				callBack(containerTypeName, cellIdent, itemdata);
-			},
-			error: function () { console.log("Error fetching Localization"); },
-			beforeSend: setHeader
-		});
-	}else{
-		callBack(containerTypeName, cellIdent, itemdata);
-	}
+function getLocalization(itemName, callBack){
+	var url = `/api/RetrieveLocalization?language=${language}&itemName=${itemName}`;
+	$.ajax({
+		url: url,
+		type: 'GET',
+		datatype: 'json',
+		success: function (data) {
+			callBack(data.data);
+		},
+		error: function () { console.log("Error fetching Localization"); },
+		beforeSend: setHeader
+	});
 }
 
 var isInventoryDialogSetup = false;
 function SetupInventoryDialog() {
+	isInventoryDialogSetup = true;
 	var CreateInvCell = function (containerTypeName, cellIdent) {
 		return "<td class=\"invField\" id=\"" + containerTypeName + "Field" + cellIdent + "\">" +
 			"<div class=\"invFieldQuality\" id=\"" + containerTypeName + "FieldQuality" + cellIdent + "\"></div>" +
