@@ -154,6 +154,7 @@ function getLocalization(itemName, callBack){
 
 var isInventoryDialogSetup = false;
 function SetupInventoryDialog() {
+	isInventoryDialogSetup = true;
 	var CreateInvCell = function (containerTypeName, cellIdent) {
 		return "<td class=\"invField\" id=\"" + containerTypeName + "Field" + cellIdent + "\">" +
 			"<div class=\"invFieldQuality\" id=\"" + containerTypeName + "FieldQuality" + cellIdent + "\"></div>" +
