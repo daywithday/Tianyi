@@ -137,9 +137,9 @@ export default {
         {
           id: '6270db57-67c9-483f-928d-1355c5c794b1',
           createdDate: '2021-06-08 11:55:58.000',
-          name: 'èŠèŠ±',
+          name: '¾Õ»¨',
           buyCmd: '/shop1',
-          content: 'èŠèŠ±',
+          content: '¾Õ»¨',
           count: 1,
           quality: 1,
           price: 1,
