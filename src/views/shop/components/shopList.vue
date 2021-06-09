@@ -135,17 +135,6 @@ export default {
   data() {
     return {
       list: [
-        {
-          id: "6270db57-67c9-483f-928d-1355c5c794b1",
-          createdDate: "2021-06-08 11:55:58.000",
-          name: "菊花",
-          buyCmd: "/shop1",
-          content: "菊花",
-          count: 1,
-          quality: 1,
-          price: 1,
-          contentType: "Item"
-        }
       ],
       currentRow: {
         buyCmd: "",

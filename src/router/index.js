@@ -272,7 +272,7 @@ export const asyncRoutes = [
       {
         path: 'externalLink',
         component: () => import('@/views/external-link/index'),
-        name: 'Log',
+        name: 'ExternalLink',
         meta: { title: 'externalLink', icon: 'link', noCache: true }
       }
     ]
