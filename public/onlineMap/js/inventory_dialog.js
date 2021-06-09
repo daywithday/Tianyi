@@ -8,29 +8,34 @@ var INV_ITEM_HEIGHT = 60;
 
 function ShowInventoryDialog(steamId) {
 	var SetCellItem = function (containerTypeName, cellIdent, itemdata) {
-		getLocalization(containerTypeName, cellIdent, itemdata,function(containerTypeName, cellIdent, itemdata){
-			var cell = $("#" + containerTypeName + "Field" + cellIdent);
-			var text = $("#" + containerTypeName + "FieldText" + cellIdent);
-			var qual = $("#" + containerTypeName + "FieldQuality" + cellIdent);
-	
-			cell.attr("style", "background-image: none;");
-			cell.removeAttr("title");
-			text.removeClass("visible");
-			qual.removeClass("visible");
-	
-			if (itemdata !== null && itemdata !== undefined) {
-				cell.attr("style", "background-image: url(" + ITEMICONBASEURL + itemdata.icon + "__" + itemdata.iconcolor + ".png);");
-				if (itemdata.quality >= 0) {
-					cell.attr("title", itemdata.name + " (quality: " + itemdata.quality + ")");
-					qual.attr("style", "background-color: #" + itemdata.qualitycolor);
-					qual.addClass("visible");
-				} else {
-					cell.attr("title", itemdata.name);
-					text.text(itemdata.count);
-					text.addClass("visible");
-				}
+		var cell = $("#" + containerTypeName + "Field" + cellIdent);
+		var text = $("#" + containerTypeName + "FieldText" + cellIdent);
+		var qual = $("#" + containerTypeName + "FieldQuality" + cellIdent);
+
+		cell.attr("style", "background-image: none;");
+		cell.removeAttr("title");
+		text.removeClass("visible");
+		qual.removeClass("visible");
+
+		if (itemdata !== null && itemdata !== undefined) {
+			cell.attr("style", "background-image: url(" + ITEMICONBASEURL + itemdata.icon + "__" + itemdata.iconcolor + ".png);");
+			if (itemdata.quality >= 0) {
+				cell.attr("title", itemdata.itemName + " (quality: " + itemdata.quality + ")");
+				qual.attr("style", "background-color: #" + itemdata.qualitycolor);
+				qual.addClass("visible");
+			} else {
+				cell.attr("title", itemdata.itemName);
+				text.text(itemdata.count);
+				text.addClass("visible");
 			}
-		});
+			getLocalization(itemdata.itemName, function(name){
+				if (itemdata.quality >= 0) {
+					cell.attr("title", itemdata.itemName + " (quality: " + itemdata.quality + ")");
+				} else {
+					cell.attr("title", itemdata.itemName);
+				}
+			});
+		}
 	}
 
 	var SetEquipmentItem = function (data, name, cellIdent) {
@@ -106,24 +111,18 @@ function ShowInventoryDialog(steamId) {
 	});
 }
 
-function getLocalization(containerTypeName, cellIdent, itemdata, callBack){
-	if(itemdata){
-		var itemName = itemdata.itemName;
-		var url = `/api/RetrieveLocalization?language=${language}&itemName=${itemName}`;
-		$.ajax({
-			url: url,
-			type: 'GET',
-			datatype: 'json',
-			success: function (data) {
-				itemdata.name = data.data;
-				callBack(containerTypeName, cellIdent, itemdata);
-			},
-			error: function () { console.log("Error fetching Localization"); },
-			beforeSend: setHeader
-		});
-	}else{
-		callBack(containerTypeName, cellIdent, itemdata);
-	}
+function getLocalization(itemName, callBack){
+	var url = `/api/RetrieveLocalization?language=${language}&itemName=${itemName}`;
+	$.ajax({
+		url: url,
+		type: 'GET',
+		datatype: 'json',
+		success: function (data) {
+			callBack(data.data);
+		},
+		error: function () { console.log("Error fetching Localization"); },
+		beforeSend: setHeader
+	});
 }
 
 var isInventoryDialogSetup = false;
