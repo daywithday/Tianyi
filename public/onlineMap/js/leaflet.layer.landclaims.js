@@ -1,18 +1,5 @@
 
 function GetLandClaimsLayer(map, mapinfo) {
-	var cookies = document.cookie.split(";")
-	var token = ''
-	if (cookies && cookies.length > 0) {
-		var len = cookies.length
-		for (var index = 0; index < len; index++) {
-			if (cookies[index].split('=')[0] == 'Admin-Token') {
-				token = cookies[index].split('=')[1]
-			}
-		}
-	}
-	function setHeader(xhr) {
-		xhr.setRequestHeader('access-token', token);
-	}
 	var landClaimsGroup = L.layerGroup();
 	var landClaimsClusterGroup = L.markerClusterGroup({
 		disableClusteringAtZoom: mapinfo.maxzoom,
