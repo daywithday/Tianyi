@@ -11,7 +11,7 @@
           label-width="auto"
         >
           <el-form-item :label="$t('publicCity.availableCityTips')">
-            <el-input v-model="form.availableCityTips" />
+            <el-input v-model="form.queryListPreTips" />
           </el-form-item>
           <el-form-item :label="$t('publicCity.coolingTips')">
             <el-input v-model="form.coolingTips" />
@@ -65,13 +65,12 @@ import {
   RetrieveTeleportCityConfig,
   UpdateTeleportCityConfig
 } from '@/utils/api'
-import { setToken, setPort } from '@/utils/auth'
 export default {
   components: { cityList },
   data() {
     return {
       form: {
-        availableCityTips: '',
+        queryListPreTips: '',
         coolingTips: '',
         functionName: '',
         isEnabled: true,
