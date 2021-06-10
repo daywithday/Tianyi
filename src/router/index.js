@@ -193,14 +193,14 @@ export const asyncRoutes = [
     ]
   },
   {
-    path: '/shop',
+    path: '/lotterSysten',
     component: Layout,
     children: [
       {
-        path: 'shop',
-        component: () => import('@/views/shop/index'),
-        name: 'Shop',
-        meta: { title: 'shop', icon: 'shopping', noCache: true }
+        path: 'lotterSysten',
+        component: () => import('@/views/lotterSysten/index'),
+        name: 'LotterSysten',
+        meta: { title: 'lotterSysten', icon: 'eye-open', noCache: true }
       }
     ]
   },
@@ -241,14 +241,14 @@ export const asyncRoutes = [
     ]
   },
   // {
-  //   path: '/theme',
+  //   path: '/icons',
   //   component: Layout,
   //   children: [
   //     {
-  //       path: 'index',
-  //       component: () => import('@/views/theme/index'),
-  //       name: 'Theme',
-  //       meta: { title: 'theme', icon: 'theme' }
+  //       path: 'icons',
+  //       component: () => import('@/views/icons/index'),
+  //       name: 'icons',
+  //       meta: { title: 'icons', icon: 'icons',noCache: true }
   //     }
   //   ]
   // },

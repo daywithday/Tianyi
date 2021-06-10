@@ -54,3 +54,11 @@ export const CreateGoods = data => post('/api/CreateGoods', data) // 创建商�
 export const DeleteGoods = data => post('/api/DeleteGoods', data) // 删除商品
 export const UpdateGoods = data => post('/api/UpdateGoods', data) // 更新商品
 export const RetrieveContentTypes = data => get('/api/RetrieveContentTypes', data) // 获取商品类型列表
+
+export const RetrieveLotterySystemConfig = data => get('/api/RetrieveLotterySystemConfig', data) // 获取抽奖配置
+export const UpdateLotterySystemConfig = data => post('/api/UpdateLotterySystemConfig', data) // 更新抽奖配置
+
+export const RetrieveLottery = data => get('/api/RetrieveLottery', data) // 获取抽奖奖品列表
+export const CreateLottery = data => post('/api/CreateLottery', data) // 创建奖品
+export const DeleteLottery = data => post('/api/DeleteLottery', data) // 删除奖品
+export const UpdateLottery = data => post('/api/UpdateLottery', data) // 更新奖品

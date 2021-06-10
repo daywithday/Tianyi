@@ -10,6 +10,7 @@ export default {
     privateHome: 'Private Home',
     pointsSystem: 'Points System',
     shop: 'shop',
+    lotterSysten: 'Lotter Systen',
     externalLink: 'Interface Document',
     telnet: 'telnet',
     onlineMap: 'onlineMap',
@@ -118,7 +119,8 @@ export default {
     PointsSystem: 'Point System',
     TeleportCity: 'Public Back to City',
     TeleportHome: 'Private home',
-    GameStore: 'GameStore'
+    GameStore: 'GameStore',
+    LotterySystem: 'LotterySystem'
   },
   notice: {
     alternateInterval: 'Cycle time',
@@ -203,6 +205,23 @@ export default {
     quality: 'product quality',
     position: 'Commodity type',
     contentType: 'items/blocks/entities/commands'
+  },
+  lotterSysten: {
+    currentLotteryCmd: 'Lottery instruction',
+    endLotteryTips: 'Tips for the end of the draw',
+    isEnabled: 'whether it is enabled',
+    lotteryDuration: 'lottery duration',
+    lotteryInterval: 'lottery cycle time',
+    maxWinnerCount: 'Maximum number of winnings',
+    notWinningTips: 'Not WinningTips',
+    startLotteryTips: 'Start Lottery Tips',
+    winningTips: 'Winning Tips',
+    content: 'Prize content',
+    name: 'Prize name',
+    count: 'Number of prizes',
+    quality: 'Reward quality',
+    contentType: 'Prize Type',
+    list: 'Prize list'
   },
   telnet: {
     placeholder: 'Please enter the instruction',

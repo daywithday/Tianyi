@@ -10,6 +10,7 @@ export default {
     privateHome: '私人回家',
     pointsSystem: '积分系统',
     shop: '商城配置',
+    lotterSysten: '抽奖系统',
     externalLink: '接口文档',
     telnet: '终端',
     log: '更新日志',
@@ -118,7 +119,8 @@ export default {
     PointsSystem: '积分系统',
     TeleportCity: '公共回城',
     TeleportHome: '私人回家',
-    GameStore: '游戏商城'
+    GameStore: '游戏商城',
+    LotterySystem: '抽奖系统'
   },
   notice: {
     alternateInterval: '循环时间',
@@ -219,6 +221,23 @@ export default {
     quality: '商品质量',
     position: '商品类型',
     contentType: '物品/方块/实体/指令'
+  },
+  lotterSysten: {
+    currentLotteryCmd: '抽奖指令',
+    endLotteryTips: '抽奖结束提示',
+    isEnabled: '是否启用',
+    lotteryDuration: '抽奖持续时间',
+    lotteryInterval: '抽奖循环时间',
+    maxWinnerCount: '最大获奖数量',
+    notWinningTips: '没中奖提示',
+    startLotteryTips: '开始抽奖提示',
+    winningTips: '中奖提示',
+    content: '奖品内容',
+    name: '奖品名称',
+    count: '奖品数量',
+    quality: '奖品质量',
+    contentType: '奖品类型',
+    list: '奖品列表'
   },
   telnet: {
     placeholder: '请输入指令',
