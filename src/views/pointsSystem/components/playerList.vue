@@ -68,17 +68,34 @@
 <script>
 import {
   RetrievePlayerPoints,
-  UpdatePlayerPoints
+  UpdatePlayerPoints,
+  RetrievePlayerPointsPaged
 } from '@/utils/api'
 export default {
   data() {
     return {
       list: [],
-      currentRow: {}
+      currentRow: {},
+      index: 1
     }
   },
-  mounted() {},
+  created() {
+    this.getCurrentList()
+  },
   methods: {
+    getCurrentList() {
+      const that = this
+      RetrievePlayerPointsPaged({
+        pageIndex: that.index,
+        pageSize: 10
+      }).then(res => {
+        if (res.data.length === 10) {
+          that.index++
+          that.getCurrentList()
+        }
+        that.list = that.list.concat(res.data)
+      })
+    },
     getList() {
       const that = this
       RetrievePlayerPoints({ steamId: that.currentRow.steamId }).then(res => {

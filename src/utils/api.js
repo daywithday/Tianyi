@@ -30,6 +30,7 @@ export const RetrievePointsSystemConfig = data => get('/api/RetrievePointsSystem
 export const UpdatePointsSystemConfig = data => post('/api/UpdatePointsSystemConfig', data)// 更新积分系统配置
 
 export const RetrievePlayerPoints = data => get('/api/RetrievePlayerPoints', data)// 获取玩家积分信息
+export const RetrievePlayerPointsPaged = data => post('/api/RetrievePlayerPointsPaged', data)// 获取积分信息列表
 export const UpdatePlayerPoints = data => post('/api/UpdatePlayerPoints', data)// 更新玩家积分
 
 export const RetrieveKnownPlayer = data => get('/api/RetrieveKnownPlayers', data)// 获取历史玩家
