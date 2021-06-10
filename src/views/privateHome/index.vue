@@ -143,11 +143,10 @@ export default {
 </script>
 <style lang="scss" scoped>
 .chat-history-container {
-  margin: 10px 20px 0;
-  padding: 20px;
+  margin: 10px 20px 20px 20px;
   box-sizing: border-box;
-  max-height: calc(100vh - 80px);
-  overflow-y:auto; 
+  max-height: calc(100vh - 120px);
+  overflow-y:auto;
 }
 </style>
 

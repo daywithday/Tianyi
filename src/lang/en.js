@@ -9,7 +9,7 @@ export default {
     publicCity: 'Public City',
     privateHome: 'Private Home',
     pointsSystem: 'Points System',
-    shop:'shop',
+    shop: 'shop',
     externalLink: 'Interface Document',
     telnet: 'telnet',
     onlineMap: 'onlineMap',
@@ -82,7 +82,7 @@ export default {
     create: 'create',
     search: 'Search',
     send: 'modify',
-    delete:'delete'
+    delete: 'delete'
   },
   serverInfo: {
     players: 'Online players',
@@ -117,7 +117,8 @@ export default {
     AntiCheat: 'Anti-cheat',
     PointsSystem: 'Point System',
     TeleportCity: 'Public Back to City',
-    TeleportHome: 'Private home'
+    TeleportHome: 'Private home',
+    GameStore: 'GameStore'
   },
   notice: {
     alternateInterval: 'Cycle time',
@@ -185,23 +186,23 @@ export default {
   about: {
     content: 'Tianyi Seven Days Kill Management System'
   },
-  shop:{
-    buySuccessfullyTips:'Successful purchase tips',
-    goodsNoFoundTips:'The product does not exist tips',
-    pointsNotEnoughTips:'tips for insufficient points',
-    queryListCmd: "Query Mall Command",
-    queryListPreTips:'Product list tips',
-    queryListTips:'Product display field sorting',
-    isEnabled:'whether it is enabled',
-    list:'Mall List',
-    buyCmd:'Buy order',
-    content:'Product content',
-    count:'Product quantity',
-    name:'product name',
-    price:'Commodity price',
-    quality:'product quality',
-    position:'Commodity type',
-    contentType:'items/blocks/entities/commands'
+  shop: {
+    buySuccessfullyTips: 'Successful purchase tips',
+    goodsNoFoundTips: 'The product does not exist tips',
+    pointsNotEnoughTips: 'tips for insufficient points',
+    queryListCmd: 'Query Mall Command',
+    queryListPreTips: 'Product list tips',
+    queryListTips: 'Product display field sorting',
+    isEnabled: 'whether it is enabled',
+    list: 'Mall List',
+    buyCmd: 'Buy order',
+    content: 'Product content',
+    count: 'Product quantity',
+    name: 'product name',
+    price: 'Commodity price',
+    quality: 'product quality',
+    position: 'Commodity type',
+    contentType: 'items/blocks/entities/commands'
   },
   telnet: {
     placeholder: 'Please enter the instruction',
