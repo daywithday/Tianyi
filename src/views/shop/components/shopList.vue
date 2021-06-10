@@ -56,14 +56,12 @@
         </template>
       </el-table-column>
       <el-table-column
-        ref="hh"
         :label="$t('table.actions')"
         width="100"
         @click.stop=""
       >
         <template slot-scope="scope">
           <el-button
-            ref="hh"
             type="danger"
             size="small"
             @click="delete(scope.$index, scope.row)"
@@ -139,9 +137,9 @@ export default {
         {
           id: '6270db57-67c9-483f-928d-1355c5c794b1',
           createdDate: '2021-06-08 11:55:58.000',
-          name: 'ï¿½Õ»ï¿½',
+          name: '¾Õ»¨',
           buyCmd: '/shop1',
-          content: 'ï¿½Õ»ï¿½',
+          content: '¾Õ»¨',
           count: 1,
           quality: 1,
           price: 1,
@@ -198,9 +196,6 @@ export default {
     this.getList()
     this.getSelectList()
   },
-  mounted() {
-
-  },
   methods: {
     getcontentType(data) {
       const that = this
@@ -242,7 +237,6 @@ export default {
     },
     onUpdate() {
       const that = this
-      console.log(this.$refs)
       UpdateGoods(that.currentRow).then(res => {
         that.$notify({
           title: 'Success',
