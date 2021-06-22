@@ -136,7 +136,7 @@ export default {
         // skip hidden router
         if (router.hidden) { continue }
         const data = {
-          path: path.resolve(basePath, router.path),
+          path: path.posix.resolve(basePath, router.path),
           title: [...prefixTitle]
         }
         if (router.meta && router.meta.title) {

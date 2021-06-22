@@ -135,7 +135,7 @@ export default {
         }
 
         const data = {
-          path: path.resolve(basePath, route.path),
+          path: path.posix.resolve(basePath, route.path),
           title: route.meta && route.meta.title
 
         }
@@ -201,7 +201,7 @@ export default {
       const res = []
 
       for (const route of routes) {
-        const routePath = path.resolve(basePath, route.path)
+        const routePath = path.posix.resolve(basePath, route.path)
 
         // recursive child routes
         if (route.children) {
@@ -255,7 +255,7 @@ export default {
       // When there is only one child route, the child route is displayed by default
       if (showingChildren.length === 1) {
         onlyOneChild = showingChildren[0]
-        onlyOneChild.path = path.resolve(parent.path, onlyOneChild.path)
+        onlyOneChild.path = path.posix.resolve(parent.path, onlyOneChild.path)
         return onlyOneChild
       }
 
