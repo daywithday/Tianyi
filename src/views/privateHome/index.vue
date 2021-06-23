@@ -13,9 +13,6 @@
       <el-form-item :label="$t('privateHome.deleteSucceedTips')">
         <el-input v-model="form.deleteSucceedTips" />
       </el-form-item>
-      <el-form-item :label="$t('privateHome.functionName')">
-        <el-input v-model="form.functionName" disabled />
-      </el-form-item>
       <el-form-item :label="$t('privateHome.homeNotFoundTips')">
         <el-input v-model="form.homeNotFoundTips" />
       </el-form-item>

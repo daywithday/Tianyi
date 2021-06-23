@@ -181,6 +181,54 @@ export const asyncRoutes = [
     ]
   },
   {
+    path: '/TeleportFriend',
+    component: Layout,
+    children: [
+      {
+        path: 'TeleportFriend',
+        component: () => import('@/views/TeleportFriend/index'),
+        name: 'TeleportFriend',
+        meta: { title: 'TeleportFriend', icon: 'people', noCache: true }
+      }
+    ]
+  },
+  {
+    path: '/DeathPenalty',
+    component: Layout,
+    children: [
+      {
+        path: 'DeathPenalty',
+        component: () => import('@/views/DeathPenalty/index'),
+        name: 'DeathPenalty',
+        meta: { title: 'DeathPenalty', icon: 'eye', noCache: true }
+      }
+    ]
+  },
+  {
+    path: '/OnlineReward',
+    component: Layout,
+    children: [
+      {
+        path: 'OnlineReward',
+        component: () => import('@/views/OnlineReward/index'),
+        name: 'OnlineReward',
+        meta: { title: 'OnlineReward', icon: 'money', noCache: true }
+      }
+    ]
+  },
+  {
+    path: '/ZombieKillReward',
+    component: Layout,
+    children: [
+      {
+        path: 'ZombieKillReward',
+        component: () => import('@/views/ZombieKillReward/index'),
+        name: 'ZombieKillReward',
+        meta: { title: 'ZombieKillReward', icon: 'form', noCache: true }
+      }
+    ]
+  },
+  {
     path: '/pointsSystem',
     component: Layout,
     children: [

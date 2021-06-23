@@ -12,10 +12,7 @@
         <el-input v-model="form.chatCommandCacheMaxCount" />
       </el-form-item>
       <el-form-item :label="$t('config.chatCommandPrefix')">
-        <el-input v-model="form.chatCommandPrefix" disabled />
-      </el-form-item>
-      <el-form-item :label="$t('config.functionName')">
-        <el-input v-model="form.functionName" disabled />
+        <el-input v-model="form.chatCommandPrefix" />
       </el-form-item>
       <el-form-item :label="$t('config.handleChatMessageError')">
         <el-input v-model="form.handleChatMessageError" />

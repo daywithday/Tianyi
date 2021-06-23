@@ -7,6 +7,10 @@ export default {
     notice: 'notice',
     player: 'Player management',
     publicCity: 'Public City',
+    TeleportFriend: 'Teleport Friend',
+    DeathPenalty: 'Death Penalty',
+    ZombieKillReward: 'Kill Reward',
+    OnlineReward: 'Online Reward',
     privateHome: 'Private Home',
     pointsSystem: 'Points System',
     shop: 'shop',
@@ -78,6 +82,24 @@ export default {
 
     profile: 'Profile'
   },
+  ZombieKillReward: {
+    rewardPoints: 'Reward Points',
+    rewardPointsTips: 'Reward Tips',
+    isEnabled: 'whether it is enabled',
+    triggerRequiredCount: 'The number of triggered kills'
+  },
+  OnlineReward: {
+    rewardInterval: 'loop time',
+    rewardPoints: 'Reward Points',
+    rewardPointsTips: 'Reward Tips',
+    isEnabled: 'whether it is enabled'
+  },
+  DeathPenalty: {
+    deductPoints: 'Death deduction points',
+    deductPointsTips: 'Deduct Tips',
+    allowNegative: 'Whether to allow negative points',
+    isEnabled: 'whether it is enabled'
+  },
   button: {
     save: 'save',
     create: 'create',
@@ -101,16 +123,16 @@ export default {
     logIn: 'log in'
   },
   config: {
-    chatCommandCacheMaxCount: 'chatCommandCacheMaxCount',
-    chatCommandPrefix: 'chatCommandPrefix',
+    chatCommandCacheMaxCount: 'Command cache number',
+    chatCommandPrefix: 'Command prefix',
     functionName: 'functionName',
-    handleChatMessageError: 'handleChatMessageError',
-    serverName: 'serverName',
-    accessToken: 'accessToken',
-    enableGzip: 'enableGzip',
-    openInDefaultBrowser: 'openInDefaultBrowser',
+    handleChatMessageError: 'Error command prompt',
+    serverName: 'System display name',
+    accessToken: 'Secret Key',
+    enableGzip: 'Enable Gzip',
+    openInDefaultBrowser: 'Whether the web will automatically pop up when the server is started',
     webApiPort: 'Web Port',
-    webSocketPort: 'terminal port'
+    webSocketPort: 'Terminal port'
   },
   management: {
     CommonConfig: 'Common Configuration',
@@ -120,7 +142,11 @@ export default {
     TeleportCity: 'Public Back to City',
     TeleportHome: 'Private home',
     GameStore: 'GameStore',
-    LotterySystem: 'LotterySystem'
+    LotterySystem: 'LotterySystem',
+    TeleportFriend: 'Friend Teleport',
+    DeathPenalty: 'Death Penalty',
+    OnlineReward: 'Online Reward',
+    ZombieKillReward: 'Kill Reward'
   },
   notice: {
     alternateInterval: 'Cycle time',
@@ -184,6 +210,17 @@ export default {
     teleInterval: 'Cooling Time',
     telePointsNotEnoughTips: 'Not enough points to go home',
     teleSucceedTips: 'Successful Tips for Going Home'
+  },
+  TeleportFriend: {
+    coolingTips: 'Cooling Tips',
+    pointsNotEnoughTips: 'tips for insufficient points',
+    pointsRequired: 'Points consumption',
+    targetNotFoundTips: 'Target does not exist tips',
+    targetNotFriendTips: 'The target is not a friend tip',
+    teleCmd: 'Transfer command',
+    teleInterval: 'cooling time',
+    teleSucceedTips: 'Successful transmission prompt',
+    isEnabled: 'whether it is enabled'
   },
   about: {
     content: 'Tianyi Seven Days Kill Management System'
