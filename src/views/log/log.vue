@@ -27,6 +27,11 @@ export default {
     return {
       list: [
         {
+          time: '2021-6-23',
+          index: '第0.16版',
+          content: ['新增抽奖系统', '新增好友传送', '新增死亡惩罚', '新增在线奖励', '新增击杀奖励']
+        },
+        {
           time: '2021-6-8',
           index: '第0.15版',
           content: ['新增在线商城']
@@ -34,7 +39,7 @@ export default {
         {
           time: '2021-6-1',
           index: '第0.14版',
-          content: ['完善GPS地图插件，已与原本一致。']
+          content: ['完善GPS地图插件，已与原版一致。']
         },
         {
           time: '2021-5-28',

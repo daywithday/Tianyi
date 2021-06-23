@@ -16,12 +16,6 @@
           <el-form-item :label="$t('publicCity.coolingTips')">
             <el-input v-model="form.coolingTips" />
           </el-form-item>
-          <el-form-item :label="$t('publicCity.functionName')">
-            <el-input
-              v-model="form.functionName"
-              disabled
-            />
-          </el-form-item>
           <el-form-item :label="$t('publicCity.noneCityTips')">
             <el-input v-model="form.noneCityTips" />
           </el-form-item>

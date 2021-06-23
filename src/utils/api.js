@@ -63,3 +63,15 @@ export const RetrieveLottery = data => get('/api/RetrieveLottery', data) // 获�
 export const CreateLottery = data => post('/api/CreateLottery', data) // 创建奖品
 export const DeleteLottery = data => post('/api/DeleteLottery', data) // 删除奖品
 export const UpdateLottery = data => post('/api/UpdateLottery', data) // 更新奖品
+
+export const RetrieveTeleportFriendConfig = data => get('/api/RetrieveTeleportFriendConfig', data) // 获取好友传送
+export const UpdateTeleportFriendConfig = data => post('/api/UpdateTeleportFriendConfig', data) // 更新好友传送
+
+export const RetrieveDeathPenaltyConfig = data => get('/api/RetrieveDeathPenaltyConfig', data) // 获取死亡惩罚
+export const UpdateDeathPenaltyConfig = data => post('/api/UpdateDeathPenaltyConfig', data) // 更新死亡惩罚
+
+export const RetrieveOnlineRewardConfig = data => get('/api/RetrieveOnlineRewardConfig', data) // 获取在线奖励
+export const UpdateOnlineRewardConfig = data => post('/api/UpdateOnlineRewardConfig', data) // 更新在线奖励
+
+export const RetrieveZombieKillRewardConfig = data => get('/api/RetrieveZombieKillRewardConfig', data) // 获取击杀奖励
+export const UpdateZombieKillRewardConfig = data => post('/api/UpdateZombieKillRewardConfig', data) // 更新击杀奖励

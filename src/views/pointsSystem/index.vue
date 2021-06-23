@@ -16,12 +16,6 @@
           <el-form-item :label="$t('pointsSystem.neverSignInTips')">
             <el-input v-model="form.neverSignInTips" />
           </el-form-item>
-          <el-form-item :label="$t('pointsSystem.functionName')">
-            <el-input
-              v-model="form.functionName"
-              disabled
-            />
-          </el-form-item>
           <el-form-item :label="$t('pointsSystem.queryPointsCmd')">
             <el-input v-model="form.queryPointsCmd" />
           </el-form-item>
