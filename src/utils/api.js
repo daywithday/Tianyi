@@ -30,6 +30,7 @@ export const RetrievePointsSystemConfig = data => get('/api/RetrievePointsSystem
 export const UpdatePointsSystemConfig = data => post('/api/UpdatePointsSystemConfig', data)// 更新积分系统配置
 
 export const RetrievePlayerPoints = data => get('/api/RetrievePlayerPoints', data)// 获取玩家积分信息
+export const RetrievePlayerPointsPaged = data => post('/api/RetrievePlayerPointsPaged', data)// 获取积分信息列表
 export const UpdatePlayerPoints = data => post('/api/UpdatePlayerPoints', data)// 更新玩家积分
 
 export const RetrieveKnownPlayer = data => get('/api/RetrieveKnownPlayers', data)// 获取历史玩家
@@ -54,3 +55,23 @@ export const CreateGoods = data => post('/api/CreateGoods', data) // 创建商�
 export const DeleteGoods = data => post('/api/DeleteGoods', data) // 删除商品
 export const UpdateGoods = data => post('/api/UpdateGoods', data) // 更新商品
 export const RetrieveContentTypes = data => get('/api/RetrieveContentTypes', data) // 获取商品类型列表
+
+export const RetrieveLotterySystemConfig = data => get('/api/RetrieveLotterySystemConfig', data) // 获取抽奖配置
+export const UpdateLotterySystemConfig = data => post('/api/UpdateLotterySystemConfig', data) // 更新抽奖配置
+
+export const RetrieveLottery = data => get('/api/RetrieveLottery', data) // 获取抽奖奖品列表
+export const CreateLottery = data => post('/api/CreateLottery', data) // 创建奖品
+export const DeleteLottery = data => post('/api/DeleteLottery', data) // 删除奖品
+export const UpdateLottery = data => post('/api/UpdateLottery', data) // 更新奖品
+
+export const RetrieveTeleportFriendConfig = data => get('/api/RetrieveTeleportFriendConfig', data) // 获取好友传送
+export const UpdateTeleportFriendConfig = data => post('/api/UpdateTeleportFriendConfig', data) // 更新好友传送
+
+export const RetrieveDeathPenaltyConfig = data => get('/api/RetrieveDeathPenaltyConfig', data) // 获取死亡惩罚
+export const UpdateDeathPenaltyConfig = data => post('/api/UpdateDeathPenaltyConfig', data) // 更新死亡惩罚
+
+export const RetrieveOnlineRewardConfig = data => get('/api/RetrieveOnlineRewardConfig', data) // 获取在线奖励
+export const UpdateOnlineRewardConfig = data => post('/api/UpdateOnlineRewardConfig', data) // 更新在线奖励
+
+export const RetrieveZombieKillRewardConfig = data => get('/api/RetrieveZombieKillRewardConfig', data) // 获取击杀奖励
+export const UpdateZombieKillRewardConfig = data => post('/api/UpdateZombieKillRewardConfig', data) // 更新击杀奖励

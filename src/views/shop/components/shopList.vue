@@ -58,13 +58,12 @@
       <el-table-column
         :label="$t('table.actions')"
         width="100"
-        @click.stop=""
       >
         <template slot-scope="scope">
           <el-button
             type="danger"
             size="small"
-            @click="delete(scope.$index, scope.row)"
+            @click.native.stop="deleteItem(scope.$index)"
           >{{ $t('button.delete') }}</el-button>
         </template>
       </el-table-column>
@@ -80,7 +79,7 @@
         <el-input v-model="currentRow.buyCmd" />
       </el-form-item>
       <el-form-item :label="$t('shop.content')">
-        <el-input v-model="currentRow.content" />
+        <el-input v-model="currentRow.content" :placeholder="$t('shop.contentType')" />
       </el-form-item>
 
       <el-form-item :label="$t('shop.name')">
@@ -126,7 +125,7 @@ import {
   RetrieveGoods,
   UpdateGoods,
   CreateGoods,
-  // DeleteGoods,
+  DeleteGoods,
   RetrieveLocalization,
   RetrieveContentTypes
 } from '@/utils/api'
@@ -137,9 +136,9 @@ export default {
         {
           id: '6270db57-67c9-483f-928d-1355c5c794b1',
           createdDate: '2021-06-08 11:55:58.000',
-          name: '¾Õ»¨',
+          name: 'ï¿½Õ»ï¿½',
           buyCmd: '/shop1',
-          content: '¾Õ»¨',
+          content: 'ï¿½Õ»ï¿½',
           count: 1,
           quality: 1,
           price: 1,
@@ -206,8 +205,19 @@ export default {
         console.log(res)
       })
     },
-    delete(data) {
-      console.log(data)
+    deleteItem(data) {
+      const that = this
+      if (data >= 0) {
+        const id = this.list[data].id
+        DeleteGoods({ ids: [id] }).then(res => {
+          that.$notify({
+            title: 'Success',
+            dangerouslyUseHTMLString: true,
+            type: 'success'
+          })
+          that.getList()
+        })
+      }
     },
     getList() {
       const that = this

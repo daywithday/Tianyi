@@ -7,9 +7,14 @@ export default {
     notice: 'notice',
     player: 'Player management',
     publicCity: 'Public City',
+    TeleportFriend:'Teleport Friend',
+    DeathPenalty:'Death Penalty',
+    ZombieKillReward:'Kill Reward',
+    OnlineReward:'Online Reward',
     privateHome: 'Private Home',
     pointsSystem: 'Points System',
     shop: 'shop',
+    lotterSysten: 'Lotter Systen',
     externalLink: 'Interface Document',
     telnet: 'telnet',
     onlineMap: 'onlineMap',
@@ -77,6 +82,24 @@ export default {
 
     profile: 'Profile'
   },
+  ZombieKillReward: {
+    rewardPoints:'Reward Points',
+    rewardPointsTips:'Reward Tips',
+    isEnabled:'whether it is enabled',
+    triggerRequiredCount:'The number of triggered kills'
+  },
+  OnlineReward: {
+    rewardInterval:'loop time',
+    rewardPoints:'Reward Points',
+    rewardPointsTips:'Reward Tips',
+    isEnabled:'whether it is enabled'
+  },
+  DeathPenalty: {
+    deductPoints:'Death deduction points',
+    deductPointsTips:'Deduct Tips',
+    allowNegative:'Whether to allow negative points',
+    isEnabled:'whether it is enabled'
+  },
   button: {
     save: 'save',
     create: 'create',
@@ -100,16 +123,16 @@ export default {
     logIn: 'log in'
   },
   config: {
-    chatCommandCacheMaxCount: 'chatCommandCacheMaxCount',
-    chatCommandPrefix: 'chatCommandPrefix',
-    functionName: 'functionName',
-    handleChatMessageError: 'handleChatMessageError',
-    serverName: 'serverName',
-    accessToken: 'accessToken',
-    enableGzip: 'enableGzip',
-    openInDefaultBrowser: 'openInDefaultBrowser',
-    webApiPort: 'Web Port',
-    webSocketPort: 'terminal port'
+    chatCommandCacheMaxCount:'Command cache number',
+    chatCommandPrefix:'Command prefix',
+    functionName:'functionName',
+    handleChatMessageError:'Error command prompt',
+    serverName:'System display name',
+    accessToken:'Secret Key',
+    enableGzip:'Enable Gzip',
+    openInDefaultBrowser:'Whether the web will automatically pop up when the server is started',
+    webApiPort:'Web Port',
+    webSocketPort:'Terminal port'
   },
   management: {
     CommonConfig: 'Common Configuration',
@@ -118,7 +141,12 @@ export default {
     PointsSystem: 'Point System',
     TeleportCity: 'Public Back to City',
     TeleportHome: 'Private home',
-    GameStore: 'GameStore'
+    GameStore: 'GameStore',
+    LotterySystem: 'LotterySystem',
+    TeleportFriend:'Friend Teleport',
+     DeathPenalty:'Death Penalty',
+     OnlineReward:'Online Reward',
+     ZombieKillReward:'Kill Reward'
   },
   notice: {
     alternateInterval: 'Cycle time',
@@ -183,6 +211,17 @@ export default {
     telePointsNotEnoughTips: 'Not enough points to go home',
     teleSucceedTips: 'Successful Tips for Going Home'
   },
+  TeleportFriend: {
+    coolingTips:'Cooling Tips',
+    pointsNotEnoughTips:'tips for insufficient points',
+    pointsRequired:'Points consumption',
+    targetNotFoundTips:'Target does not exist tips',
+    targetNotFriendTips:'The target is not a friend tip',
+    teleCmd:'Transfer command',
+    teleInterval:'cooling time',
+    teleSucceedTips:'Successful transmission prompt',
+    isEnabled:'whether it is enabled'
+  },
   about: {
     content: 'Tianyi Seven Days Kill Management System'
   },
@@ -203,6 +242,23 @@ export default {
     quality: 'product quality',
     position: 'Commodity type',
     contentType: 'items/blocks/entities/commands'
+  },
+  lotterSysten: {
+    currentLotteryCmd: 'Lottery instruction',
+    endLotteryTips: 'Tips for the end of the draw',
+    isEnabled: 'whether it is enabled',
+    lotteryDuration: 'lottery duration',
+    lotteryInterval: 'lottery cycle time',
+    maxWinnerCount: 'Maximum number of winnings',
+    notWinningTips: 'Not WinningTips',
+    startLotteryTips: 'Start Lottery Tips',
+    winningTips: 'Winning Tips',
+    content: 'Prize content',
+    name: 'Prize name',
+    count: 'Number of prizes',
+    quality: 'Reward quality',
+    contentType: 'Prize Type',
+    list: 'Prize list'
   },
   telnet: {
     placeholder: 'Please enter the instruction',

@@ -8,8 +8,13 @@ export default {
     player: '玩家管理',
     publicCity: '公共回城',
     privateHome: '私人回家',
+    TeleportFriend: '好友传送',
+    DeathPenalty:'死亡惩罚',
+    OnlineReward:'在线奖励',
+    ZombieKillReward: '击杀奖励',
     pointsSystem: '积分系统',
     shop: '商城配置',
+    lotterSysten: '抽奖系统',
     externalLink: '接口文档',
     telnet: '终端',
     log: '更新日志',
@@ -77,6 +82,24 @@ export default {
 
     profile: '个人中心'
   },
+  ZombieKillReward: {
+    rewardPoints:'奖励积分',
+    rewardPointsTips:'奖励提示',
+    isEnabled:'是否启用',
+    triggerRequiredCount:'触发击杀数量'
+  },
+  OnlineReward: {
+    rewardInterval:'循环时间',
+    rewardPoints:'奖励积分',
+    rewardPointsTips:'奖励提示',
+    isEnabled:'是否启用'
+  },
+  DeathPenalty: {
+    deductPoints:'死亡扣除积分',
+    deductPointsTips:'扣除提示',
+    allowNegative:'是否允许负积分',
+    isEnabled:'是否启用'
+  },
   button: {
     save: '保存',
     create: '创建',
@@ -100,14 +123,14 @@ export default {
     logIn: '登录'
   },
   config: {
-    chatCommandCacheMaxCount: 'chatCommandCacheMaxCount',
-    chatCommandPrefix: 'chatCommandPrefix',
+    chatCommandCacheMaxCount: '命令缓存数量',
+    chatCommandPrefix: '命令前缀',
     functionName: 'functionName',
-    handleChatMessageError: 'handleChatMessageError',
-    serverName: 'serverName',
-    accessToken: 'accessToken',
+    handleChatMessageError: '错误命令提示',
+    serverName: '系统显示名字',
+    accessToken: '秘钥',
     enableGzip: '启用Gzip',
-    openInDefaultBrowser: '自动打开浏览器',
+    openInDefaultBrowser: '启动服务器是否自动弹出web',
     webApiPort: '网页端口',
     webSocketPort: '终端端口'
   },
@@ -118,7 +141,12 @@ export default {
     PointsSystem: '积分系统',
     TeleportCity: '公共回城',
     TeleportHome: '私人回家',
-    GameStore: '游戏商城'
+    GameStore: '游戏商城',
+    LotterySystem: '抽奖系统',
+    TeleportFriend: '好友传送',
+    DeathPenalty: '死亡惩罚',
+    OnlineReward: '在线奖励',
+    ZombieKillReward: '击杀奖励'
   },
   notice: {
     alternateInterval: '循环时间',
@@ -183,6 +211,17 @@ export default {
     telePointsNotEnoughTips: '回家积分不足提示',
     teleSucceedTips: '回家成功提示'
   },
+  TeleportFriend: {
+    coolingTips:'冷却提示',
+    pointsNotEnoughTips:'积分不足提示',
+    pointsRequired:'积分消耗',
+    targetNotFoundTips:'目标不存在提示',
+    targetNotFriendTips:'目标不是好友提示',
+    teleCmd:'传送命令',
+    teleInterval:'冷却时间',
+    teleSucceedTips:'传送成功提示',
+    isEnabled:'是否启用'
+  },
   about: {
     content: '天依七日杀管理系统'
   },
@@ -219,6 +258,23 @@ export default {
     quality: '商品质量',
     position: '商品类型',
     contentType: '物品/方块/实体/指令'
+  },
+  lotterSysten: {
+    currentLotteryCmd: '抽奖指令',
+    endLotteryTips: '抽奖结束提示',
+    isEnabled: '是否启用',
+    lotteryDuration: '抽奖持续时间',
+    lotteryInterval: '抽奖循环时间',
+    maxWinnerCount: '最大获奖数量',
+    notWinningTips: '没中奖提示',
+    startLotteryTips: '开始抽奖提示',
+    winningTips: '中奖提示',
+    content: '奖品内容',
+    name: '奖品名称',
+    count: '奖品数量',
+    quality: '奖品质量',
+    contentType: '奖品类型',
+    list: '奖品列表'
   },
   telnet: {
     placeholder: '请输入指令',

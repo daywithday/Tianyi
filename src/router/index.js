@@ -181,6 +181,54 @@ export const asyncRoutes = [
     ]
   },
   {
+    path: '/TeleportFriend',
+    component: Layout,
+    children: [
+      {
+        path: 'TeleportFriend',
+        component: () => import('@/views/TeleportFriend/index'),
+        name: 'TeleportFriend',
+        meta: { title: 'TeleportFriend', icon: 'people', noCache: true }
+      }
+    ]
+  },
+  {
+    path: '/DeathPenalty',
+    component: Layout,
+    children: [
+      {
+        path: 'DeathPenalty',
+        component: () => import('@/views/DeathPenalty/index'),
+        name: 'DeathPenalty',
+        meta: { title: 'DeathPenalty', icon: 'eye', noCache: true }
+      }
+    ]
+  },
+  {
+    path: '/OnlineReward',
+    component: Layout,
+    children: [
+      {
+        path: 'OnlineReward',
+        component: () => import('@/views/OnlineReward/index'),
+        name: 'OnlineReward',
+        meta: { title: 'OnlineReward', icon: 'money', noCache: true }
+      }
+    ]
+  },
+  {
+    path: '/ZombieKillReward',
+    component: Layout,
+    children: [
+      {
+        path: 'ZombieKillReward',
+        component: () => import('@/views/ZombieKillReward/index'),
+        name: 'ZombieKillReward',
+        meta: { title: 'ZombieKillReward', icon: 'form', noCache: true }
+      }
+    ]
+  },
+  {
     path: '/pointsSystem',
     component: Layout,
     children: [
@@ -193,14 +241,14 @@ export const asyncRoutes = [
     ]
   },
   {
-    path: '/shop',
+    path: '/lotterSysten',
     component: Layout,
     children: [
       {
-        path: 'shop',
-        component: () => import('@/views/shop/index'),
-        name: 'Shop',
-        meta: { title: 'shop', icon: 'shopping', noCache: true }
+        path: 'lotterSysten',
+        component: () => import('@/views/lotterSysten/index'),
+        name: 'LotterSysten',
+        meta: { title: 'lotterSysten', icon: 'eye-open', noCache: true }
       }
     ]
   },
@@ -241,14 +289,14 @@ export const asyncRoutes = [
     ]
   },
   // {
-  //   path: '/theme',
+  //   path: '/icons',
   //   component: Layout,
   //   children: [
   //     {
-  //       path: 'index',
-  //       component: () => import('@/views/theme/index'),
-  //       name: 'Theme',
-  //       meta: { title: 'theme', icon: 'theme' }
+  //       path: 'icons',
+  //       component: () => import('@/views/icons/index'),
+  //       name: 'icons',
+  //       meta: { title: 'icons', icon: 'icons',noCache: true }
   //     }
   //   ]
   // },

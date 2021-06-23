@@ -26,9 +26,6 @@
       <el-form-item :label="$t('notice.alternateNotice')+' 5'">
         <el-input v-model="form.alternateNotice4" type="textarea" />
       </el-form-item>
-      <el-form-item :label="$t('notice.functionName')">
-        <el-input v-model="form.functionName" disabled />
-      </el-form-item>
       <el-form-item :label="$t('notice.welcomeNotice')">
         <el-input v-model="form.welcomeNotice" type="textarea" />
       </el-form-item>
