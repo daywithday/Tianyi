@@ -23,3 +23,4 @@ yarn.lock
 /.project
 /.settings/
 /dist/
+/dist_electron
