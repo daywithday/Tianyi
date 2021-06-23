@@ -23,25 +23,25 @@ function ShowInventoryDialog(steamId) {
 				cell.attr("title", itemdata.itemName + " (quality: " + itemdata.quality + ")");
 				switch (itemdata.quality) {
 				case 0:
-					itemdata.qualitycolor = '#909090';
+					itemdata.qualitycolor = '#808080';
 					break;
 				case 1:
-					itemdata.qualitycolor = '#FFFFFF';
+					itemdata.qualitycolor = '#9C8867';
 					break;
 				case 2:
-					itemdata.qualitycolor = '#3DD20D';
+					itemdata.qualitycolor = '#CF7F29';
 					break;
 				case 3:
-					itemdata.qualitycolor = '#2F78FF';
+					itemdata.qualitycolor = '#A2A41B';
 					break;
 				case 4:
-					itemdata.qualitycolor = '#9132C8';
+					itemdata.qualitycolor = '#42C234';
 					break;
 				case 5:
-					itemdata.qualitycolor = '#F39C12';
+					itemdata.qualitycolor = '#315DCE';
 					break;
 				case 6:
-					itemdata.qualitycolor = '#F7DC6F';
+					itemdata.qualitycolor = '#A42ACC';
 					break;
 				default:
 					itemdata.qualitycolor = 'transparent';
