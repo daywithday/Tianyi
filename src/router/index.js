@@ -241,6 +241,18 @@ export const asyncRoutes = [
     ]
   },
   {
+    path: '/shop',
+    component: Layout,
+    children: [
+      {
+        path: 'shop',
+        component: () => import('@/views/shop/index'),
+        name: 'shop',
+        meta: { title: 'shop', icon: 'shopping', noCache: true }
+      }
+    ]
+  },
+  {
     path: '/lotterSysten',
     component: Layout,
     children: [
