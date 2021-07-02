@@ -75,3 +75,5 @@ export const UpdateOnlineRewardConfig = data => post('/api/UpdateOnlineRewardCon
 
 export const RetrieveZombieKillRewardConfig = data => get('/api/RetrieveZombieKillRewardConfig', data) // 获取击杀奖励
 export const UpdateZombieKillRewardConfig = data => post('/api/UpdateZombieKillRewardConfig', data) // 更新击杀奖励
+
+export const RestartServer = data => get('/api/RestartServer', data) // 重启服务器

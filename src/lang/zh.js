@@ -1,7 +1,14 @@
 export default {
   route: {
     dashboard: '首页',
+    system: '系统配置',
+    TPsysten: '传送系统',
     chats: '聊天记录',
+    base: '基础设置',
+    msg: '信息查看',
+    other: '其它',
+    restart: '重启服务器',
+    pointsConfig: '积分配置',
     config: '公共配置',
     management: '功能管理',
     notice: '游戏公告',
@@ -88,6 +95,9 @@ export default {
     isEnabled: '是否启用',
     triggerRequiredCount: '触发击杀数量'
   },
+  restart: {
+    restart: '是否强制'
+  },
   OnlineReward: {
     rewardInterval: '循环时间',
     rewardPoints: '奖励积分',
@@ -105,7 +115,8 @@ export default {
     create: '创建',
     search: '搜索',
     send: '修改',
-    delete: '删除'
+    delete: '删除',
+    run: '执行'
   },
   serverInfo: {
     players: '在线玩家',
