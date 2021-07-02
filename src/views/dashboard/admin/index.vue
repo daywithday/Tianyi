@@ -48,9 +48,9 @@ export default {
   mounted() {
     const that = this
     const version = getVersion()
-    if (!version || version < 16) {
-      setVersion(16)
-      this.$router.push({ path: './log/log' })
+    if (!version || version < 17) {
+      setVersion(17)
+      this.$router.push({ path: './other/log' })
     }
     RetrieveServerStats().then(res => {
       that.serverState = res.data

@@ -4,21 +4,8 @@ var mapinfo = {
 	tilesize: 128,
 	maxzoom: 4
 }
-var cookies = document.cookie.split(";")
-var token = ''
-var language = ''
-if (cookies && cookies.length > 0) {
-	var len = cookies.length
-	for (var index = 0; index < len; index++) {
-		if (cookies[index].trim().split('=')[0] == 'Admin-Token') {
-			token = cookies[index].split('=')[1].trim();
-		}else if (cookies[index].trim().split('=')[0] == 'lang') {
-			language = cookies[index].split('=')[1].trim();
-			language = language == "zh" ? "schinese" : "english";
-		}
-		 
-	}
-}
+var token = localStorage.getItem('Admin-Token')
+var language = localStorage.getItem('lang') == "zh" ? "schinese" : "english";
 function setHeader(xhr) {
 	xhr.setRequestHeader('access-token', token);
 }
@@ -303,16 +290,16 @@ function InitMap() {
 		// 	.always(function () {
 		// 		updatePlayerTimeout = window.setTimeout(updatePlayerEvent, 4000);
 		// 	})
-			var url = "/api/RetrievePlayersLocation?offline=true"
+		var url = "/api/RetrievePlayersLocation?offline=true"
 
-			$.ajax({
-				url: url,
-				type: 'GET',
-				datatype: 'json',
-				success: function(data) { setPlayerMarkers(data.data);updatePlayerTimeout = window.setTimeout(updatePlayerEvent, 4000); },
-				error: function() { console.log("Error fetching players list");updatePlayerTimeout = window.setTimeout(updatePlayerEvent, 4000); },
-				beforeSend: setHeader       
-			  }); 
+		$.ajax({
+			url: url,
+			type: 'GET',
+			datatype: 'json',
+			success: function (data) { setPlayerMarkers(data.data); updatePlayerTimeout = window.setTimeout(updatePlayerEvent, 4000); },
+			error: function () { console.log("Error fetching players list"); updatePlayerTimeout = window.setTimeout(updatePlayerEvent, 4000); },
+			beforeSend: setHeader
+		});
 	}
 
 	tabs.on("tabbedcontenttabopened", function (event, data) {
@@ -388,16 +375,16 @@ function InitMap() {
 		// 	.always(function () {
 		// 		updateHostileTimeout = window.setTimeout(updateHostileEvent, 4000);
 		// 	});
-			var url = "/api/RetrieveHostileLocation"
+		var url = "/api/RetrieveHostileLocation"
 
-			$.ajax({
-				url: url,
-				type: 'GET',
-				datatype: 'json',
-				success: function(data) { setHostileMarkers(data.data);updateHostileTimeout = window.setTimeout(updateHostileEvent, 4000); },
-				error: function() { console.log("Error fetching hostile list");updateHostileTimeout = window.setTimeout(updateHostileEvent, 4000); },
-				beforeSend: setHeader       
-			  }); 
+		$.ajax({
+			url: url,
+			type: 'GET',
+			datatype: 'json',
+			success: function (data) { setHostileMarkers(data.data); updateHostileTimeout = window.setTimeout(updateHostileEvent, 4000); },
+			error: function () { console.log("Error fetching hostile list"); updateHostileTimeout = window.setTimeout(updateHostileEvent, 4000); },
+			beforeSend: setHeader
+		});
 	}
 
 	tabs.on("tabbedcontenttabopened", function (event, data) {
@@ -472,16 +459,16 @@ function InitMap() {
 		// 	.always(function () {
 		// 		updateAnimalsTimeout = window.setTimeout(updateAnimalsEvent, 4000);
 		// 	});
-			var url = "/api/RetrieveAnimalsLocation"
+		var url = "/api/RetrieveAnimalsLocation"
 
-			$.ajax({
-				url: url,
-				type: 'GET',
-				datatype: 'json',
-				success: function(data) { setAnimalMarkers(data.data);updateAnimalsTimeout = window.setTimeout(updateAnimalsEvent, 4000); },
-				error: function() { console.log("Error fetching hostile list");updateAnimalsTimeout = window.setTimeout(updateAnimalsEvent, 4000); },
-				beforeSend: setHeader       
-			  }); 
+		$.ajax({
+			url: url,
+			type: 'GET',
+			datatype: 'json',
+			success: function (data) { setAnimalMarkers(data.data); updateAnimalsTimeout = window.setTimeout(updateAnimalsEvent, 4000); },
+			error: function () { console.log("Error fetching hostile list"); updateAnimalsTimeout = window.setTimeout(updateAnimalsEvent, 4000); },
+			beforeSend: setHeader
+		});
 	}
 
 	tabs.on("tabbedcontenttabopened", function (event, data) {

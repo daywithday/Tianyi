@@ -1,4 +1,3 @@
-import Cookies from 'js-cookie'
 
 const TokenKey = 'Admin-Token'
 const ServerKey = 'Server'
@@ -7,69 +6,69 @@ const Translate = 'Translate'
 const Version = 'Version'
 const lang = 'lang'
 export function getToken() {
-  return Cookies.get(TokenKey)
+  return localStorage.getItem(TokenKey)
 }
 
 export function setToken(token) {
-  return Cookies.set(TokenKey, token, { expires: 9999 })
+  return localStorage.setItem(TokenKey, token)
 }
 
 export function removeToken() {
-  return Cookies.remove(TokenKey)
+  return localStorage.removeItem(TokenKey)
 }
 
 export function getServer() {
-  return Cookies.get(ServerKey)
+  return localStorage.getItem(ServerKey)
 }
 
 export function setServer(server) {
-  return Cookies.set(ServerKey, server, { expires: 36500 })
+  return localStorage.setItem(ServerKey, server)
 }
 
 export function removeServer() {
-  return Cookies.remove(ServerKey)
+  return localStorage.removeItem(ServerKey)
 }
 
 export function getPort() {
-  return Cookies.get(PortKey)
+  return localStorage.getItem(PortKey)
 }
 
 export function setPort(port) {
-  return Cookies.set(PortKey, port, { expires: 36500 })
+  return localStorage.setItem(PortKey, port)
 }
 
 export function removePort() {
-  return Cookies.remove(PortKey)
+  return localStorage.removeItem(PortKey)
 }
 
 export function getTranslate() {
-  return Cookies.get(Translate)
+  return localStorage.getItem(Translate)
 }
 
 export function setTranslate(content) {
-  return Cookies.set(Translate, content, { expires: 36500 })
+  return localStorage.setItem(Translate, content)
 }
 
 export function removeTranslate() {
-  return Cookies.remove(Translate)
+  return localStorage.removeItem(Translate)
 }
 
 export function getVersion() {
-  return Cookies.get(Version)
+  return localStorage.getItem(Version)
 }
 
 export function setVersion(content) {
-  return Cookies.set(Version, content, { expires: 36500 })
+  return localStorage.setItem(Version, content)
 }
 
 export function removeVersion() {
-  return Cookies.remove(Version)
+  return localStorage.removeItem(Version)
 }
 
 export function getlang() {
-  return Cookies.get(lang)
+  return localStorage.getItem(lang)
 }
 
 export function setlang(content) {
-  return Cookies.set(lang, content, { expires: 36500 })
+  return localStorage.setItem(lang, content)
 }
