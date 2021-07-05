@@ -290,7 +290,7 @@ function InitMap() {
 		// 	.always(function () {
 		// 		updatePlayerTimeout = window.setTimeout(updatePlayerEvent, 4000);
 		// 	})
-		var url = "/api/RetrievePlayersLocation?offline=true"
+		var url = "/api/ServerManage/RetrievePlayersLocation?offline=true"
 
 		$.ajax({
 			url: url,
@@ -375,7 +375,7 @@ function InitMap() {
 		// 	.always(function () {
 		// 		updateHostileTimeout = window.setTimeout(updateHostileEvent, 4000);
 		// 	});
-		var url = "/api/RetrieveHostileLocation"
+		var url = "/api/ServerManage/RetrieveHostileLocation"
 
 		$.ajax({
 			url: url,
@@ -459,7 +459,7 @@ function InitMap() {
 		// 	.always(function () {
 		// 		updateAnimalsTimeout = window.setTimeout(updateAnimalsEvent, 4000);
 		// 	});
-		var url = "/api/RetrieveAnimalsLocation"
+		var url = "/api/ServerManage/RetrieveAnimalsLocation"
 
 		$.ajax({
 			url: url,

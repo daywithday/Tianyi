@@ -3,6 +3,7 @@
     <aside>
       {{ $t("route.OnlineReward") }}
     </aside>
+    <inputLable :input-label="inputLabel" />
     <el-form ref="form" :model="form" label-width="auto">
       <el-form-item :label="$t('OnlineReward.rewardInterval')">
         <el-input v-model="form.rewardInterval" />
@@ -27,7 +28,8 @@
 <script>
 import {
   RetrieveOnlineRewardConfig,
-  UpdateOnlineRewardConfig
+  UpdateOnlineRewardConfig,
+  RetrieveAvailableVariables_OnlineReward
 } from '@/utils/api'
 export default {
   data() {
@@ -37,13 +39,21 @@ export default {
         rewardPoints: '',
         isEnabled: true,
         rewardPointsTips: true
-      }
+      },
+      inputLabel: ''
     }
   },
   mounted() {
     this.getDate()
+    this.getinputLabel()
   },
   methods: {
+    getinputLabel() {
+      const that = this
+      RetrieveAvailableVariables_OnlineReward().then(res => {
+        that.inputLabel = res.data
+      })
+    },
     getDate() {
       const that = this
       RetrieveOnlineRewardConfig().then((res) => {

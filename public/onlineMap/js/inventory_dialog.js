@@ -73,7 +73,7 @@ function ShowInventoryDialog(steamId) {
 		}
 	}
 
-	var url = `/api/RetrieveInventory?steamId=${steamId}`
+	var url = `/api/Players/RetrieveInventory?steamId=${steamId}`
 
 	$.ajax({
 		url: url,
@@ -165,7 +165,7 @@ function ShowInventoryDialog(steamId) {
 }
 
 function getLocalization(itemName, callBack){
-	var url = `/api/RetrieveLocalization?language=${language}&itemName=${itemName}`;
+	var url = `/api/Localization/RetrieveLocalization?language=${language}&itemName=${itemName}`;
 	$.ajax({
 		url: url,
 		type: 'GET',

@@ -70,7 +70,7 @@ function StartStatsModule() {
 
 function StartUIUpdatesModule() {
 	var updateGameTimeEvent = function () {
-		var url = "/api/RetrieveServerStats"
+		var url = "/api/ServerManage/RetrieveServerStats"
 
 		$.ajax({
 			url: url,
