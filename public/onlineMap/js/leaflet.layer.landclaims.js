@@ -53,7 +53,7 @@ function GetLandClaimsLayer(map, mapinfo) {
 		// .fail(function(jqxhr, textStatus, error) {
 		// 	console.log("Error fetching land claim list");
 		// })
-		var url = "/api/RetrieveLandClaims"
+		var url = "/api/ServerManage/RetrieveLandClaims"
 
 		$.ajax({
 			url: url,

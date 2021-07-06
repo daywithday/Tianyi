@@ -18,7 +18,7 @@ export default {
     TeleportFriend: '好友传送',
     DeathPenalty: '死亡惩罚',
     OnlineReward: '在线奖励',
-    ZombieKillReward: '击杀奖励',
+    ZombieKillReward: '击杀奖励配置',
     pointsSystem: '积分系统',
     shop: '商城配置',
     lotterSysten: '抽奖系统',
@@ -89,14 +89,38 @@ export default {
 
     profile: '个人中心'
   },
+  inputLabel: {
+    tip: '输入帮助',
+    inputTip: '可在此处编辑您需要设置的提示，然后复制到底下。',
+    color: '添加颜色',
+    select: '可用变量',
+    colorselect: '选择颜色',
+    selectTip: '点击即可添加到下方输入框',
+    input: '文字编辑'
+  },
   ZombieKillReward: {
     rewardPoints: '奖励积分',
     rewardPointsTips: '奖励提示',
     isEnabled: '是否启用',
-    triggerRequiredCount: '触发击杀数量'
+    triggerRequiredCount: '触发击杀数量',
+    reward: '奖励列表',
+    steamIdOrEntityName: '悬赏实体名/steamID',
+    rewardContent: '悬赏内容 物品/方块/实体/指令',
+    rewardContentType: '悬赏奖励类型',
+    friendlyName: '悬赏名称',
+    spawnedTips: '生成提示',
+    killedTips: '击杀提示',
+    rewardCount: '数量',
+    rewardQuality: '质量'
   },
   restart: {
-    restart: '是否强制'
+    restart: '是否强制',
+    hours: '重启定时',
+    minutes: '重启定分',
+    delay: '重启延迟(秒)',
+    globalTips: '重启提示',
+    isEnabled: '是否启用定时重启',
+    functionName: ''
   },
   OnlineReward: {
     rewardInterval: '循环时间',
@@ -116,7 +140,8 @@ export default {
     search: '搜索',
     send: '修改',
     delete: '删除',
-    run: '执行'
+    run: '执行',
+    runNow: '立即重启'
   },
   serverInfo: {
     players: '在线玩家',
@@ -157,7 +182,8 @@ export default {
     TeleportFriend: '好友传送',
     DeathPenalty: '死亡惩罚',
     OnlineReward: '在线奖励',
-    ZombieKillReward: '击杀奖励'
+    KillReward: '击杀奖励',
+    AutoRestart: '自动重启'
   },
   notice: {
     alternateInterval: '循环时间',

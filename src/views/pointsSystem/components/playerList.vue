@@ -89,11 +89,11 @@ export default {
         pageIndex: that.index,
         pageSize: 10
       }).then(res => {
-        if (res.data.length === 10) {
+        if (res.data.items.length === 10) {
           that.index++
           that.getCurrentList()
         }
-        that.list = that.list.concat(res.data)
+        that.list = that.list.concat(res.data.items)
       })
     },
     getList() {

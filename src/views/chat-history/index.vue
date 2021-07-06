@@ -1,25 +1,27 @@
 <template>
-    <div class="chat-history-container">
-        <aside>
-      {{$t('route.chats')}}
+  <div class="chat-history-container">
+    <aside>
+      {{ $t('route.chats') }}
     </aside>
-        <ul
-            class="infinite-list"
-            v-infinite-scroll="load"
-            style="overflow:auto"
-        >
-            <li
-                v-for="(i,index) in list"
-                v-bind:key="index"
-                class="infinite-list-item"
-            >
-                {{i.createdDate.split('.')[0]+'   '+(i.playerName?i.playerName:i.steamId)+' : '+i.message}}
-            </li>
-        </ul>
-    </div>
+    <ul
+      v-infinite-scroll="load"
+      class="infinite-list"
+      style="overflow:auto"
+    >
+      <li
+        v-for="(i,index) in list"
+        :key="index"
+        class="infinite-list-item"
+      >
+        <span style="color:red">{{ i.createdDate.split('.')[0] }} : </span>
+        <span style="color:blue">{{ (i.playerName?i.playerName:i.steamId) }} : </span>
+        <span style="color:orange">{{ i.message }}</span>
+      </li>
+    </ul>
+  </div>
 </template>
 <script>
-import { RetrieveChatLogPaged } from "@/utils/api";
+import { RetrieveChatLogPaged } from '@/utils/api'
 export default {
   data() {
     return {
@@ -27,33 +29,33 @@ export default {
       list: [],
       pageIndex: 0,
       pageSize: 10
-    };
+    }
   },
   mounted() {
-    this.getDate();
+    this.getDate()
   },
   methods: {
     load() {
-      let that = this;
-      this.pageIndex += 1;
+      const that = this
+      this.pageIndex += 1
       RetrieveChatLogPaged({
         pageIndex: that.pageIndex,
         pageSize: that.pageSize
       }).then(res => {
-        that.list = that.list.concat(res.data);
-      });
+        that.list = that.list.concat(res.data.items)
+      })
     },
     getDate() {
-      let that = this;
+      const that = this
       RetrieveChatLogPaged({
         pageIndex: that.pageIndex,
         pageSize: that.pageSize
       }).then(res => {
-        that.list = res.data;
-      });
+        that.list = res.data.items
+      })
     }
   }
-};
+}
 </script>
 <style lang="scss" scoped>
 .chat-history-container {

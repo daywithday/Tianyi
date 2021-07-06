@@ -18,7 +18,7 @@ function ShowInventoryDialog(steamId) {
 		qual.removeClass("visible");
 
 		if (itemdata !== null && itemdata !== undefined) {
-			cell.attr("style", "background-image: url(" + ITEMICONBASEURL + itemdata.icon + "__" + itemdata.iconcolor + ".png);");
+			cell.attr("style", "background-image: url(" + ITEMICONBASEURL + itemdata.icon + ".png" + itemdata.iconcolor?"?iconColor=" + itemdata.iconcolor:'' +");");
 			if (itemdata.quality >= 0) {
 				cell.attr("title", itemdata.itemName + " (quality: " + itemdata.quality + ")");
 				switch (itemdata.quality) {
@@ -73,7 +73,7 @@ function ShowInventoryDialog(steamId) {
 		}
 	}
 
-	var url = `/api/RetrieveInventory?steamId=${steamId}`
+	var url = `/api/Players/RetrieveInventory?steamId=${steamId}`
 
 	$.ajax({
 		url: url,
@@ -165,7 +165,7 @@ function ShowInventoryDialog(steamId) {
 }
 
 function getLocalization(itemName, callBack){
-	var url = `/api/RetrieveLocalization?language=${language}&itemName=${itemName}`;
+	var url = `/api/Localization/RetrieveLocalization?language=${language}&itemName=${itemName}`;
 	$.ajax({
 		url: url,
 		type: 'GET',

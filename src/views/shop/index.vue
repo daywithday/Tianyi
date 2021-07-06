@@ -3,6 +3,7 @@
     <aside>
       {{ $t('route.shop') }}
     </aside>
+    <inputLable :input-label="inputLabel" />
     <el-tabs :tab-position="device == 'mobile' ?'top':'left'">
       <el-tab-pane :label="$t('route.shop')">
         <el-form
@@ -49,7 +50,7 @@
 <script>
 import shopList from './components/shopList'
 import { mapGetters } from 'vuex'
-import { RetrieveGameStoreConfig, UpdateGameStoreConfig } from '@/utils/api'
+import { RetrieveGameStoreConfig, UpdateGameStoreConfig, GameStoreRetrieveAvailableVariables } from '@/utils/api'
 export default {
   components: { shopList },
   data() {
@@ -63,7 +64,8 @@ export default {
         queryListCmd: '',
         queryListPreTips: '',
         queryListTips: ''
-      }
+      },
+      inputLabel: ''
     }
   },
   computed: {
@@ -71,8 +73,15 @@ export default {
   },
   mounted() {
     this.getDate()
+    this.getinputLabel()
   },
   methods: {
+    getinputLabel() {
+      const that = this
+      GameStoreRetrieveAvailableVariables().then(res => {
+        that.inputLabel = res.data
+      })
+    },
     getDate() {
       const that = this
       RetrieveGameStoreConfig().then(res => {

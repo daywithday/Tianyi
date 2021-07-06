@@ -42,7 +42,8 @@ Vue.use(Element, {
 Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key])
 })
-
+import inputLable from '@/components/inputLabel'
+Vue.component('inputLable', inputLable)// 全局自定义组件
 Vue.config.productionTip = false
 
 new Vue({

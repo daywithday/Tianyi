@@ -3,6 +3,7 @@
     <aside>
       {{ $t('route.config') }}
     </aside>
+
     <el-form
       ref="form"
       :model="form"
@@ -45,9 +46,11 @@
   </div>
 </template>
 <script>
+
 import { RetrieveCommonConfig, UpdateCommonConfig } from '@/utils/api'
 import { setToken, setPort } from '@/utils/auth'
 export default {
+
   data() {
     return {
       form: {

@@ -3,6 +3,7 @@
     <aside>
       {{ $t('route.lotterSysten') }}
     </aside>
+    <inputLable :input-label="inputLabel" />
     <el-tabs :tab-position="device == 'mobile' ?'top':'left'">
       <el-tab-pane :label="$t('route.lotterSysten')">
         <el-form
@@ -57,7 +58,8 @@ import shopList from './components/shopList'
 import { mapGetters } from 'vuex'
 import {
   RetrieveLotterySystemConfig,
-  UpdateLotterySystemConfig
+  UpdateLotterySystemConfig,
+  LotterySystemRetrieveAvailableVariables
 } from '@/utils/api'
 export default {
   components: { shopList },
@@ -74,7 +76,8 @@ export default {
         notWinningTips: '',
         startLotteryTips: '',
         winningTips: ''
-      }
+      },
+      inputLabel: ''
     }
   },
   computed: {
@@ -82,8 +85,15 @@ export default {
   },
   mounted() {
     this.getDate()
+    this.getinputLabel()
   },
   methods: {
+    getinputLabel() {
+      const that = this
+      LotterySystemRetrieveAvailableVariables().then(res => {
+        that.inputLabel = res.data
+      })
+    },
     getDate() {
       const that = this
       RetrieveLotterySystemConfig().then(res => {

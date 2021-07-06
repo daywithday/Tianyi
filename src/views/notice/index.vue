@@ -3,6 +3,7 @@
     <aside>
       {{ $t('route.notice') }}
     </aside>
+    <inputLable :input-label="inputLabel" />
     <el-form
       ref="form"
       :model="form"
@@ -42,19 +43,26 @@
   </div>
 </template>
 <script>
-import { RetrieveGameNoticeConfig, UpdateGameNoticeConfig } from '@/utils/api'
+import { RetrieveGameNoticeConfig, UpdateGameNoticeConfig, RetrieveAvailableVariables } from '@/utils/api'
 export default {
   data() {
     return {
       form: {
-
-      }
+      },
+      inputLabel: ''
     }
   },
   mounted() {
     this.getDate()
+    this.getinputLabel()
   },
   methods: {
+    getinputLabel() {
+      const that = this
+      RetrieveAvailableVariables().then(res => {
+        that.inputLabel = res.data
+      })
+    },
     getDate() {
       const that = this
       RetrieveGameNoticeConfig().then(res => {

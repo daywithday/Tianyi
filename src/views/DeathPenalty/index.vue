@@ -3,6 +3,7 @@
     <aside>
       {{ $t("route.DeathPenalty") }}
     </aside>
+    <inputLable :input-label="inputLabel" />
     <el-form ref="form" :model="form" label-width="auto">
       <el-form-item :label="$t('DeathPenalty.deductPoints')">
         <el-input v-model="form.deductPoints" />
@@ -27,7 +28,8 @@
 <script>
 import {
   RetrieveDeathPenaltyConfig,
-  UpdateDeathPenaltyConfig
+  UpdateDeathPenaltyConfig,
+  RetrieveAvailableVariables_DeathPenalty
 } from '@/utils/api'
 export default {
   data() {
@@ -37,13 +39,21 @@ export default {
         deductPointsTips: '',
         isEnabled: true,
         allowNegative: true
-      }
+      },
+      inputLabel: ''
     }
   },
   mounted() {
     this.getDate()
+    this.getinputLabel()
   },
   methods: {
+    getinputLabel() {
+      const that = this
+      RetrieveAvailableVariables_DeathPenalty().then(res => {
+        that.inputLabel = res.data
+      })
+    },
     getDate() {
       const that = this
       RetrieveDeathPenaltyConfig().then((res) => {
