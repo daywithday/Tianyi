@@ -17,9 +17,11 @@ export const RetrieveAvailableVariables = data => get('/api/GameNotice/RetrieveA
 export const UpdateGameNoticeConfig = data => post('/api/GameNotice/UpdateGameNoticeConfig', data)// 更新游戏公告
 
 export const RetrieveTeleportHomeConfig = data => get('/api/TeleportHome/RetrieveTeleportHomeConfig', data)// 获取私人回家配置
+export const TeleportHomeRetrieveAvailableVariables = data => get('/api/TeleportHome/RetrieveAvailableVariables', data)// 获取私人回家配置可用变量
 export const UpdateTeleportHomeConfig = data => post('/api/TeleportHome/UpdateTeleportHomeConfig', data)// 更新私人回家配置
 
 export const RetrieveTeleportCityConfig = data => get('/api/TeleportCity/RetrieveTeleportCityConfig', data)// 获取公共回城配置
+export const TeleportCityRetrieveAvailableVariables = data => get('/api/TeleportCity/RetrieveAvailableVariables', data)// 获取公共回城配置可用变量
 export const UpdateTeleportCityConfig = data => post('/api/TeleportCity/UpdateTeleportCityConfig', data)// 更新公共回城配置
 
 export const RetrieveCityPosition = data => get('/api/TeleportCity/RetrieveCityPosition', data)// 获取公共回城列表
@@ -27,6 +29,7 @@ export const UpdateCityPosition = data => post('/api/TeleportCity/UpdateCityPosi
 export const CreateCityPosition = data => post('/api/TeleportCity/CreateCityPosition', data)// 创建公共回城点
 
 export const RetrievePointsSystemConfig = data => get('/api/PointsSystem/RetrievePointsSystemConfig', data)// 获取积分系统配置
+export const PointsSystemRetrieveAvailableVariables = data => get('/api/PointsSystem/RetrieveAvailableVariables', data)// 获取积分系统配置的可用配置
 export const UpdatePointsSystemConfig = data => post('/api/PointsSystem/UpdatePointsSystemConfig', data)// 更新积分系统配置
 
 export const RetrievePlayerPoints = data => get('/api/PointsSystem/RetrievePlayerPoints', data)// 获取玩家积分信息
@@ -48,6 +51,7 @@ export const RetrieveLocalization = data => get('/api/Localization/RetrieveLocal
 export const map = data => get(`/map/${data.x}/${data.y}/${data.z}`, {}) // 获取地图
 
 export const RetrieveGameStoreConfig = data => get('/api/GameStore/RetrieveGameStoreConfig', data) // 获取商城配置
+export const GameStoreRetrieveAvailableVariables = data => get('/api/GameStore/RetrieveAvailableVariables', data) // 获取商城配置可用变量
 export const UpdateGameStoreConfig = data => post('/api/GameStore/UpdateGameStoreConfig', data) // 更新商城配置
 
 export const RetrieveGoods = data => get('/api/GameStore/RetrieveGoods', data) // 获取商城商品列表
@@ -57,6 +61,7 @@ export const UpdateGoods = data => post('/api/GameStore/UpdateGoods', data) // �
 export const RetrieveContentTypes = data => get('/api/GameStore/RetrieveContentTypes', data) // 获取商品类型列表
 
 export const RetrieveLotterySystemConfig = data => get('/api/LotterySystem/RetrieveLotterySystemConfig', data) // 获取抽奖配置
+export const LotterySystemRetrieveAvailableVariables = data => get('/api/LotterySystem/RetrieveAvailableVariables', data) // 获取抽奖配置可用变量
 export const UpdateLotterySystemConfig = data => post('/api/LotterySystem/UpdateLotterySystemConfig', data) // 更新抽奖配置
 
 export const RetrieveLottery = data => get('/api/LotterySystem/RetrieveLottery', data) // 获取抽奖奖品列表
@@ -65,6 +70,7 @@ export const DeleteLottery = data => post('/api/LotterySystem/DeleteLottery', da
 export const UpdateLottery = data => post('/api/LotterySystem/UpdateLottery', data) // 更新奖品
 
 export const RetrieveTeleportFriendConfig = data => get('/api/TeleportFriend/RetrieveTeleportFriendConfig', data) // 获取好友传送
+export const TeleportFriendRetrieveAvailableVariables = data => get('/api/TeleportFriend/RetrieveAvailableVariables', data) // 获取好友传送可用变量
 export const UpdateTeleportFriendConfig = data => post('/api/TeleportFriend/UpdateTeleportFriendConfig', data) // 更新好友传送
 
 export const RetrieveDeathPenaltyConfig = data => get('/api/ExtensionFunctions/RetrieveDeathPenaltyConfig', data) // 获取死亡惩罚
@@ -75,9 +81,16 @@ export const RetrieveOnlineRewardConfig = data => get('/api/ExtensionFunctions/R
 export const RetrieveAvailableVariables_OnlineReward = data => get('/api/ExtensionFunctions/RetrieveAvailableVariables_OnlineReward', data) // 获取在线奖励可用变量
 export const UpdateOnlineRewardConfig = data => post('/api/ExtensionFunctions/UpdateOnlineRewardConfig', data) // 更新在线奖励
 
-export const RetrieveZombieKillRewardConfig = data => get('/api/RetrieveZombieKillRewardConfig', data) // 获取击杀奖励
-export const UpdateZombieKillRewardConfig = data => post('/api/UpdateZombieKillRewardConfig', data) // 更新击杀奖励
+export const RetrieveZombieKillRewardConfig = data => get('/api/KillReward/RetrieveKillRewardConfig', data) // 获取击杀奖励
+export const KillRewardRetrieveAvailableVariables = data => get('/api/KillReward/RetrieveAvailableVariables', data) // 获取击杀奖励可用变量
+export const UpdateZombieKillRewardConfig = data => post('/api/KillReward/UpdateKillRewardConfig', data) // 更新击杀奖励
+
+export const RetrieveKillReward = data => get('/api/KillReward/RetrieveKillReward', data) // 获取击杀奖励列表
+export const CreateKillReward = data => post('/api/KillReward/CreateKillReward', data) // 创建击杀奖励
+export const DeleteKillReward = data => post('/api/KillReward/DeleteKillReward', data) // 删除击杀奖励
+export const UpdateKillReward = data => post('/api/KillReward/UpdateKillReward', data) // 更新击杀奖励
 
 export const RetrieveAutoRestartConfig = data => get('/api/ExtensionFunctions/RetrieveAutoRestartConfig', data) // 获取重启配置
+export const RetrieveAvailableVariables_AutoRestart = data => get('/api/ExtensionFunctions/RetrieveAvailableVariables_AutoRestart', data) // 获取重启配置可用变量
 export const UpdateAutoRestartConfig = data => post('/api/ExtensionFunctions/UpdateAutoRestartConfig', data) // 更新重启配置
 export const RestartServer = data => get('/api/ExtensionFunctions/RestartServer', data) // 重启服务器

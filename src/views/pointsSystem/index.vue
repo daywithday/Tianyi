@@ -3,6 +3,7 @@
     <aside>
       {{ $t('route.pointsSystem') }}
     </aside>
+    <inputLable :input-label="inputLabel" />
     <el-tabs :tab-position="device == 'mobile' ?'top':'left'">
       <el-tab-pane :label="$t('route.pointsSystem')">
         <el-form
@@ -60,7 +61,8 @@ import playerList from './components/playerList'
 import { mapGetters } from 'vuex'
 import {
   RetrievePointsSystemConfig,
-  UpdatePointsSystemConfig
+  UpdatePointsSystemConfig,
+  PointsSystemRetrieveAvailableVariables
 } from '@/utils/api'
 export default {
   components: { playerList },
@@ -78,7 +80,8 @@ export default {
         signFailTips: '',
         signInterval: '',
         signSucceedTips: ''
-      }
+      },
+      inputLabel: ''
     }
   },
   computed: {
@@ -86,8 +89,15 @@ export default {
   },
   mounted() {
     this.getDate()
+    this.getinputLabel()
   },
   methods: {
+    getinputLabel() {
+      const that = this
+      PointsSystemRetrieveAvailableVariables().then(res => {
+        that.inputLabel = res.data
+      })
+    },
     getDate() {
       const that = this
       RetrievePointsSystemConfig().then(res => {

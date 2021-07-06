@@ -133,9 +133,8 @@ export default {
           getPort() +
           '/itemicons/' +
           item.icon +
-          '__' +
-          item.iconcolor +
-          '.png'
+          '.png' +
+          item.iconcolor ? '?iconColor=' + item.iconcolor : ''
         )
       } else {
         if (global_itemicons.has(item.icon)) {

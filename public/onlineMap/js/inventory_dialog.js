@@ -18,7 +18,7 @@ function ShowInventoryDialog(steamId) {
 		qual.removeClass("visible");
 
 		if (itemdata !== null && itemdata !== undefined) {
-			cell.attr("style", "background-image: url(" + ITEMICONBASEURL + itemdata.icon + "__" + itemdata.iconcolor + ".png);");
+			cell.attr("style", "background-image: url(" + ITEMICONBASEURL + itemdata.icon + ".png" + itemdata.iconcolor?"?iconColor=" + itemdata.iconcolor:'' +");");
 			if (itemdata.quality >= 0) {
 				cell.attr("title", itemdata.itemName + " (quality: " + itemdata.quality + ")");
 				switch (itemdata.quality) {

@@ -3,6 +3,7 @@
     <aside>
       {{ $t('route.restart') }}
     </aside>
+    <inputLable :input-label="inputLabel" />
     <el-form
       ref="form"
       label-width="auto"
@@ -36,19 +37,28 @@
 import {
   RestartServer,
   RetrieveAutoRestartConfig,
-  UpdateAutoRestartConfig
+  UpdateAutoRestartConfig,
+  RetrieveAvailableVariables_AutoRestart
 } from '@/utils/api'
 export default {
   data() {
     return {
       isEnabled: false,
-      form: ''
+      form: '',
+      inputLabel: ''
     }
   },
   mounted() {
     this.getDate()
+    this.getinputLabel()
   },
   methods: {
+    getinputLabel() {
+      const that = this
+      RetrieveAvailableVariables_AutoRestart().then(res => {
+        that.inputLabel = res.data
+      })
+    },
     getDate() {
       const that = this
       RetrieveAutoRestartConfig().then(res => {

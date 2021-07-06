@@ -3,6 +3,7 @@
     <aside>
       {{ $t("route.TeleportFriend") }}
     </aside>
+    <inputLable :input-label="inputLabel" />
     <el-form ref="form" :model="form" label-width="auto">
       <el-form-item :label="$t('TeleportFriend.coolingTips')">
         <el-input v-model="form.coolingTips" />
@@ -42,7 +43,8 @@
 <script>
 import {
   RetrieveTeleportFriendConfig,
-  UpdateTeleportFriendConfig
+  UpdateTeleportFriendConfig,
+  TeleportFriendRetrieveAvailableVariables
 } from '@/utils/api'
 export default {
   data() {
@@ -59,13 +61,21 @@ export default {
         teleCmd: '',
         teleInterval: '',
         teleSucceedTips: ''
-      }
+      },
+      inputLabel: ''
     }
   },
   mounted() {
     this.getDate()
+    this.getinputLabel()
   },
   methods: {
+    getinputLabel() {
+      const that = this
+      TeleportFriendRetrieveAvailableVariables().then(res => {
+        that.inputLabel = res.data
+      })
+    },
     getDate() {
       const that = this
       RetrieveTeleportFriendConfig().then((res) => {

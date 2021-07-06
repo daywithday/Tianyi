@@ -3,6 +3,7 @@
     <aside>
       {{ $t('route.publicCity') }}
     </aside>
+    <inputLable :input-label="inputLabel" />
     <el-tabs :tab-position="device == 'mobile' ?'top':'left'">
       <el-tab-pane :label="$t('route.publicCity')">
         <el-form
@@ -57,7 +58,8 @@ import cityList from './components/cityList'
 import { mapGetters } from 'vuex'
 import {
   RetrieveTeleportCityConfig,
-  UpdateTeleportCityConfig
+  UpdateTeleportCityConfig,
+  TeleportCityRetrieveAvailableVariables
 } from '@/utils/api'
 export default {
   components: { cityList },
@@ -74,7 +76,8 @@ export default {
         queryListTips: '',
         teleInterval: '',
         teleSucceedTips: ''
-      }
+      },
+      inputLabel: ''
     }
   },
   computed: {
@@ -82,8 +85,15 @@ export default {
   },
   mounted() {
     this.getDate()
+    this.getinputLabel()
   },
   methods: {
+    getinputLabel() {
+      const that = this
+      TeleportCityRetrieveAvailableVariables().then(res => {
+        that.inputLabel = res.data
+      })
+    },
     getDate() {
       const that = this
       RetrieveTeleportCityConfig().then(res => {

@@ -3,6 +3,7 @@
     <aside>
       {{ $t("route.privateHome") }}
     </aside>
+    <inputLable :input-label="inputLabel" />
     <el-form ref="form" :model="form" label-width="auto">
       <el-form-item :label="$t('privateHome.coolingTips')">
         <el-input v-model="form.coolingTips" />
@@ -78,7 +79,8 @@
 <script>
 import {
   RetrieveTeleportHomeConfig,
-  UpdateTeleportHomeConfig
+  UpdateTeleportHomeConfig,
+  TeleportHomeRetrieveAvailableVariables
 } from '@/utils/api'
 export default {
   data() {
@@ -106,13 +108,21 @@ export default {
         teleInterval: '',
         telePointsNotEnoughTips: '',
         teleSucceedTips: ''
-      }
+      },
+      inputLabel: ''
     }
   },
   mounted() {
     this.getDate()
+    this.getinputLabel()
   },
   methods: {
+    getinputLabel() {
+      const that = this
+      TeleportHomeRetrieveAvailableVariables().then(res => {
+        that.inputLabel = res.data
+      })
+    },
     getDate() {
       const that = this
       RetrieveTeleportHomeConfig().then((res) => {
