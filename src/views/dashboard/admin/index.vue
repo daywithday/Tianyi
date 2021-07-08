@@ -48,8 +48,8 @@ export default {
   mounted() {
     const that = this
     const version = getVersion()
-    if (!version || version < 18) {
-      setVersion(18)
+    if (!version || version < 19) {
+      setVersion(19)
       this.$router.push({ path: './other/log' })
     }
     RetrieveServerStats().then(res => {
