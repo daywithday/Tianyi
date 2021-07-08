@@ -115,7 +115,7 @@ export default {
       this.$emit("reFresh");
     },
     handleCurrentChange(val) {
-      this.currentRow = val;
+      this.currentRow =JSON.parse(JSON.stringify(val));
     }
   }
 };

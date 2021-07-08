@@ -246,6 +246,11 @@ export const asyncRoutes = [
         component: () => import('@/views/ZombieKillReward/index'),
         name: 'ZombieKillReward',
         meta: { title: 'ZombieKillReward', icon: 'form', noCache: true }
+      }, {
+        path: 'CDKey',
+        component: () => import('@/views/CDKey/index'),
+        name: 'CDKey',
+        meta: { title: 'CDKey', icon: 'form', noCache: true }
       }
     ]
   },

@@ -12,6 +12,9 @@
         <el-input v-if="key != 'isEnabled' && key != 'functionName'" v-model="form[key]" />
         <el-switch v-else-if="key != 'functionName'" v-model="form[key]" />
       </el-form-item>
+      <!-- <el-form-item :label="$t('restart.time')" v-if="form.isEnabled">
+        <p>将于每日{{form.hours + ':' + form.minutes}}定时重启，并提前{{form.delay}}秒倒计时告知用户。</p>
+      </el-form-item> -->
       <el-form-item>
         <el-button
           type="primary"

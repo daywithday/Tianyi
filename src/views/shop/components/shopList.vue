@@ -232,7 +232,7 @@ export default {
       })
     },
     handleCurrentChange(val) {
-      this.currentRow = val
+      this.currentRow =JSON.parse(JSON.stringify(val))
     },
     onCreate() {
       const that = this

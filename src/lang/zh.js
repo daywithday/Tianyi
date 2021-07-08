@@ -22,6 +22,7 @@ export default {
     pointsSystem: '积分系统',
     shop: '商城配置',
     lotterSysten: '抽奖系统',
+    CDKey: 'CDKey兑换配置',
     externalLink: '接口文档',
     telnet: '终端',
     log: '更新日志',
@@ -89,6 +90,23 @@ export default {
 
     profile: '个人中心'
   },
+  CDKey: {
+    reward:'CDKey列表',
+    rewardList:'兑换记录',
+    exchangeSuccessfullyTips:'兑换成功提示',
+    invalidKeyTips:'兑换失败提示',
+    isEnabled:'是否启用',
+    expiryDate:'过期时间，0永不过期',
+    itemContent:'兑换内容',
+    maxExchangeCount:'最大兑换次数',
+    itemQuality:'质量',
+    key:'兑换key',
+    itemCount:'数量',
+    itemName:'兑换项名',
+    contentType:'兑换内容类型',
+    limitUseOnceEachPlayer:'是否每个玩家仅能兑换一次',
+    contentTypeValue:'物品/方块/实体/指令'
+  },
   inputLabel: {
     tip: '输入帮助',
     inputTip: '可在此处编辑您需要设置的提示，然后复制到底下。',
@@ -141,7 +159,8 @@ export default {
     send: '修改',
     delete: '删除',
     run: '执行',
-    runNow: '立即重启'
+    runNow: '立即重启',
+    reset:'重置'
   },
   serverInfo: {
     players: '在线玩家',

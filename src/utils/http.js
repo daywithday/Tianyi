@@ -3,7 +3,7 @@ import QS from 'qs' // 引入qs模块，用来序列化post类型的数据，后
 import { Message } from 'element-ui'
 // 环境的切换
 
-const token = localStorage.getItem('token')
+const token = localStorage.getItem('Admin-Token')
 axios.defaults.timeout = 10000
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8'
 export function setT(token) {
@@ -57,6 +57,7 @@ axios.interceptors.response.use(
             type: 'error',
             duration: 2000
           })
+          localStorage.removeItem('Admin-Token')
           router.replace({
             path: '/setConfig',
             query: {
@@ -76,7 +77,7 @@ axios.interceptors.response.use(
             duration: 2000
           })
           // 清除token
-          localStorage.removeItem('token')
+          localStorage.removeItem('Admin-Token')
           // 跳转登录页面，并将要浏览的页面fullPath传过去，登录成功后跳转需要访问的页面
           setTimeout(() => {
             router.replace({

@@ -94,3 +94,13 @@ export const RetrieveAutoRestartConfig = data => get('/api/ExtensionFunctions/Re
 export const RetrieveAvailableVariables_AutoRestart = data => get('/api/ExtensionFunctions/RetrieveAvailableVariables_AutoRestart', data) // 获取重启配置可用变量
 export const UpdateAutoRestartConfig = data => post('/api/ExtensionFunctions/UpdateAutoRestartConfig', data) // 更新重启配置
 export const RestartServer = data => get('/api/ExtensionFunctions/RestartServer', data) // 重启服务器
+
+export const RetrieveCDKeyExchangeConfig = data => get('/api/CDKeyExchange/RetrieveCDKeyExchangeConfig', data) // 获取CDKey奖励
+export const CDKeyExchangeRetrieveAvailableVariables = data => get('/api/CDKeyExchange/RetrieveAvailableVariables', data) // 获取CDKey奖励可用变量
+export const UpdateCDKeyExchangeConfig = data => post('/api/CDKeyExchange/UpdateCDKeyExchangeConfig', data) // 更新CDKey奖励
+
+export const RetrieveCDKeyPaged = data => post('/api/CDKeyExchange/RetrieveCDKeyPaged', data) // 获取CDKey奖励列表
+export const CreateCDKey = data => post('/api/CDKeyExchange/CreateCDKey', data) // 创建CDKey奖励
+export const DeleteCDKey = data => post('/api/CDKeyExchange/DeleteCDKey', data) // 删除CDKey奖励
+export const UpdateCDKey = data => post('/api/CDKeyExchange/UpdateCDKey', data) // 更新CDKey奖励
+export const RetrieveCDKeyExchangeLogPaged = data => post('/api/CDKeyExchange/RetrieveCDKeyExchangeLogPaged', data) // 获取CDKey奖励兑换记录
